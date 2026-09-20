@@ -3,24 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>JoseloPelo Chat</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>JoseloPelo Chat</h1>
+    <div class="chat">
 
-    <h2>💬 Chat de la comunidad</h2>
+        <h1>JOSELOPELO</h1>
 
-    <div id="mensajes">
-        <p><strong>JP Bot:</strong> Bienvenido a la ronda 🧉</p>
+        <h2>💬 Chat de la comunidad</h2>
+
+        <div id="mensajes">
+
+            <p>
+                <strong>JP Bot:</strong>
+                Bienvenido a la ronda 🧉
+            </p>
+
+        </div>
+
+        <div class="entrada">
+
+            <input
+                id="mensaje"
+                type="text"
+                placeholder="Escribe un mensaje..."
+            >
+
+            <button id="enviar">
+                Enviar
+            </button>
+
+        </div>
+
     </div>
 
-<input id="mensaje" type="text" placeholder="Escribe un mensaje...">
-
-<button id="enviar">Enviar</button>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
