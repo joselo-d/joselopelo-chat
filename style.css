@@ -167,3 +167,75 @@ body {
         min-height: 280px;
     }
 }
+.oculto {
+    display: none !important;
+}
+
+.offline {
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle at center, #191333, #080a10 70%);
+
+    border-radius: 8px;
+
+    padding: 30px;
+}
+
+.estado-offline {
+    color: #a783ff;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.offline h2 {
+    color: #00e5ff;
+    margin: 5px 0 20px;
+}
+
+.horario {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.horario span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #a783ff;
+    font-size: 20px;
+}
+
+.offline p {
+    color: #aaa;
+    margin: 25px 0;
+}
+
+.boton-twitch {
+    text-decoration: none;
+
+    background: #6c3cff;
+    color: white;
+
+    padding: 12px 22px;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+.boton-twitch:hover {
+    background: #00e5ff;
+    color: #080a10;
+}
