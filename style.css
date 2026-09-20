@@ -97,3 +97,14 @@ body {
     background: #00e5ff;
     color: #080a10;
 }
+.directo {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.directo iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+}
