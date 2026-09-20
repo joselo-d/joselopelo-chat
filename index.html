@@ -5,50 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JoseloPelo Chat</title>
+    <title>JoseloPelo Live</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="chat">
+    <main class="pagina">
 
         <h1>JOSELOPELO</h1>
-<div class="directo">
 
-    <iframe
-        src="https://player.twitch.tv/?channel=joselopelo&parent=joselo-d.github.io&autoplay=false"
-        allowfullscreen>
-    </iframe>
+        <div class="contenido">
 
-</div>
-        <h2>💬 Chat de la comunidad</h2>
+            <!-- DIRECTO -->
+            <section class="directo">
 
-        <div id="mensajes">
+                <iframe
+                    src="https://player.twitch.tv/?channel=joselopelo&parent=joselo-d.github.io&autoplay=false"
+                    allowfullscreen>
+                </iframe>
 
-            <p>
-                <strong>JP Bot:</strong>
-                Bienvenido a la ronda 🧉
-            </p>
+            </section>
+
+
+            <!-- CHAT -->
+            <section class="chat">
+
+                <h2>💬 Chat de la comunidad</h2>
+
+                <div id="mensajes">
+                    <p>
+                        <strong>JP Bot:</strong>
+                        Bienvenido a la ronda 🧉
+                    </p>
+                </div>
+
+                <div class="entrada">
+
+                    <input
+                        id="mensaje"
+                        type="text"
+                        placeholder="Escribe un mensaje..."
+                    >
+
+                    <button id="enviar">
+                        Enviar
+                    </button>
+
+                </div>
+
+            </section>
 
         </div>
 
-        <div class="entrada">
-
-            <input
-                id="mensaje"
-                type="text"
-                placeholder="Escribe un mensaje..."
-            >
-
-            <button id="enviar">
-                Enviar
-            </button>
-
-        </div>
-
-    </div>
+    </main>
 
     <script src="script.js"></script>
 
