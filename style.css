@@ -187,7 +187,7 @@ body {
             rgba(8, 10, 16, 0.45),
             rgba(8, 10, 16, 0.55)
         ),
-        url("offnile.png");
+        url("offline.png");
 
     background-size: cover;
     background-position: center;
