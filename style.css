@@ -243,13 +243,14 @@ body {
     background: #00e5ff;
     color: #080a10;
 }
+
 .botones-offline {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 24px;
+    right: 24px;
 
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .boton-social {
