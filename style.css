@@ -8,39 +8,82 @@ body {
     background: #090b12;
     color: white;
     font-family: Arial, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.chat {
-    width: 420px;
+.pagina {
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.pagina h1 {
+    margin: 0 0 25px;
+    text-align: center;
+    color: #00e5ff;
+    font-size: 30px;
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+
+/* DIRECTO */
+
+.directo {
     background: #111522;
     border: 2px solid #6c3cff;
     border-radius: 14px;
-    padding: 18px;
+    padding: 10px;
 
     box-shadow:
         0 0 15px rgba(108, 60, 255, 0.5),
         0 0 30px rgba(0, 229, 255, 0.15);
 }
 
-.chat h1 {
-    margin: 0;
-    color: #00e5ff;
-    text-align: center;
-    font-size: 25px;
+.directo iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+
+    display: block;
+    border: none;
+    border-radius: 8px;
+}
+
+
+/* CHAT */
+
+.chat {
+    background: #111522;
+    border: 2px solid #6c3cff;
+    border-radius: 14px;
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow:
+        0 0 15px rgba(108, 60, 255, 0.5),
+        0 0 30px rgba(0, 229, 255, 0.15);
 }
 
 .chat h2 {
+    margin-top: 0;
     color: #a783ff;
-    font-size: 17px;
+    font-size: 18px;
     text-align: center;
 }
 
+
+/* MENSAJES */
+
 #mensajes {
-    height: 280px;
+    flex: 1;
+    min-height: 350px;
     overflow-y: auto;
 
     background: #080a10;
@@ -48,7 +91,7 @@ body {
     border-radius: 8px;
 
     padding: 12px;
-    margin: 15px 0;
+    margin-bottom: 15px;
 }
 
 #mensajes p {
@@ -60,6 +103,9 @@ body {
     color: #00e5ff;
 }
 
+
+/* ESCRIBIR */
+
 .entrada {
     display: flex;
     gap: 8px;
@@ -67,6 +113,7 @@ body {
 
 #mensaje {
     flex: 1;
+
     background: #080a10;
     color: white;
 
@@ -88,7 +135,7 @@ body {
     border: none;
     border-radius: 6px;
 
-    padding: 0 16px;
+    padding: 0 18px;
     font-weight: bold;
     cursor: pointer;
 }
@@ -97,14 +144,26 @@ body {
     background: #00e5ff;
     color: #080a10;
 }
-.directo {
-    width: 100%;
-    margin: 15px 0;
-}
 
-.directo iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 10px;
+
+/* CELULARES */
+
+@media (max-width: 800px) {
+
+    .pagina {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .directo iframe {
+        min-height: 300px;
+    }
+
+    #mensajes {
+        min-height: 280px;
+    }
 }
