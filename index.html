@@ -19,14 +19,36 @@
         <div class="contenido">
 
             <!-- DIRECTO -->
-            <section class="directo">
+           <section class="directo">
 
-                <iframe
-                    src="https://player.twitch.tv/?channel=joselopelo&parent=joselo-d.github.io&autoplay=false"
-                    allowfullscreen>
-                </iframe>
+    <!-- Reproductor -->
+    <div id="twitch-player"></div>
 
-            </section>
+    <!-- Pantalla OFFLINE -->
+    <div id="offline" class="offline oculto">
+
+        <div class="estado-offline">● OFFLINE</div>
+
+        <h2>Próximo directo</h2>
+
+        <div class="horario">
+            DOMINGO
+            <span>10:00 — 13:00 🇺🇾</span>
+        </div>
+
+        <p>Nos vemos en la próxima ronda 🧉</p>
+
+        <a
+            href="https://www.twitch.tv/joselopelo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="boton-twitch">
+            Ver canal en Twitch
+        </a>
+
+    </div>
+
+</section>
 
 
             <!-- CHAT -->
@@ -61,7 +83,8 @@
 
     </main>
 
-    <script src="script.js"></script>
+  <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+<script src="script.js"></script>
 
 </body>
 
