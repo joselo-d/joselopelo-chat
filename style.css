@@ -245,8 +245,8 @@ body {
 }
 .botones-offline {
     position: absolute;
+    top: 18px;
     right: 18px;
-    bottom: 18px;
 
     display: flex;
     gap: 10px;
