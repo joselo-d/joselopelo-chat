@@ -242,3 +242,29 @@ body {
     background: #00e5ff;
     color: #080a10;
 }
+.botones-offline {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 10px;
+}
+
+.boton-social {
+    padding: 10px 18px;
+
+    background: #6c3cff;
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: 7px;
+}
+
+.boton-social:hover {
+    background: #00e5ff;
+    color: #080a10;
+}
