@@ -190,6 +190,7 @@ body {
 
     border-radius: 8px;
     padding: 30px;
+    position: relative;
 }
 
 .estado-offline {
