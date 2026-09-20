@@ -182,12 +182,7 @@ body {
 
     text-align: center;
 
-    background:
-        linear-gradient(
-            rgba(8, 10, 16, 0.45),
-            rgba(8, 10, 16, 0.55)
-        ),
-        url("offline.png");
+ background-image: url("offline.png");
 
     background-size: cover;
     background-position: center;
