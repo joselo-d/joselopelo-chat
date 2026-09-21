@@ -601,7 +601,7 @@ body {
 
 .web-header {
     width: fit-content;
-    margin: 0 auto 24px;
+    margin: 0 auto 12px;
     padding: 8px 16px;
 
     background: #11113a;
