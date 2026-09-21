@@ -1,271 +1,596 @@
+:root {
+    --violet: #8A2BE2;
+    --magenta: #ff2df7;
+    --cyan: #00eaff;
+    --dark: #05030d;
+    --panel: #11113a;
+    --text: #f5f7ff;
+}
+
+
+/* =========================
+   GENERAL
+   ========================= */
+
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
-    min-height: 100vh;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
     background: #090b12;
-    color: white;
-    font-family: Arial, sans-serif;
+
+    color: var(--text);
+
+    font-family: "Segoe UI", Arial, sans-serif;
 }
+
+body {
+    min-height: 100vh;
+}
+
+
+/* =========================
+   PÁGINA
+   ========================= */
 
 .pagina {
     width: 95%;
     max-width: 1200px;
-    margin: 40px auto;
+
+    margin: 32px auto 40px;
 }
 
+
+/* =========================
+   TÍTULO JOSELOPELO
+   ========================= */
+
 .pagina h1 {
-    margin: 0 0 25px;
+    margin: 0 0 26px;
+
     text-align: center;
-    color: #00e5ff;
+
+    color: var(--cyan);
+
     font-size: 30px;
+    font-weight: 900;
+
+    letter-spacing: .04em;
+
+    text-shadow:
+        2px 2px 0 #050510;
 }
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+   ========================= */
 
 .contenido {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
+
+    grid-template-columns:
+        minmax(0, 2fr)
+        minmax(320px, 1fr);
+
+    gap: 24px;
+
     align-items: stretch;
 }
 
 
-/* DIRECTO */
+/* =========================
+   PANEL DIRECTO / OFFLINE
+   ========================= */
 
 .directo {
-    background: #111522;
-    border: 2px solid #6c3cff;
-    border-radius: 14px;
+    position: relative;
+
+    min-width: 0;
+
     padding: 10px;
 
+    background: var(--dark);
+
+    border: 3px solid #050510;
+    border-radius: 18px;
+
     box-shadow:
-        0 0 15px rgba(108, 60, 255, 0.5),
-        0 0 30px rgba(0, 229, 255, 0.15);
+        0 0 0 2px var(--cyan);
 }
+
+
+/* REPRODUCTOR TWITCH */
 
 .directo iframe {
     width: 100%;
     height: 100%;
+
     min-height: 450px;
 
     display: block;
-    border: none;
-    border-radius: 8px;
-}
-
-
-/* CHAT */
-
-.chat {
-    background: #111522;
-    border: 2px solid #6c3cff;
-    border-radius: 14px;
-    padding: 18px;
-
-    display: flex;
-    flex-direction: column;
-
-    box-shadow:
-        0 0 15px rgba(108, 60, 255, 0.5),
-        0 0 30px rgba(0, 229, 255, 0.15);
-}
-
-.chat h2 {
-    margin-top: 0;
-    color: #a783ff;
-    font-size: 18px;
-    text-align: center;
-}
-
-
-/* MENSAJES */
-
-#mensajes {
-    flex: 1;
-    min-height: 350px;
-    overflow-y: auto;
-
-    background: #080a10;
-    border: 1px solid #283044;
-    border-radius: 8px;
-
-    padding: 12px;
-    margin-bottom: 15px;
-}
-
-#mensajes p {
-    margin: 8px 0;
-    line-height: 1.4;
-}
-
-#mensajes strong {
-    color: #00e5ff;
-}
-
-
-/* ESCRIBIR */
-
-.entrada {
-    display: flex;
-    gap: 8px;
-}
-
-#mensaje {
-    flex: 1;
-
-    background: #080a10;
-    color: white;
-
-    border: 1px solid #6c3cff;
-    border-radius: 6px;
-
-    padding: 11px;
-    outline: none;
-}
-
-#mensaje:focus {
-    border-color: #00e5ff;
-}
-
-#enviar {
-    background: #6c3cff;
-    color: white;
 
     border: none;
-    border-radius: 6px;
-
-    padding: 0 18px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#enviar:hover {
-    background: #00e5ff;
-    color: #080a10;
+    border-radius: 11px;
 }
 
 
-/* CELULARES */
-
-@media (max-width: 800px) {
-
-    .pagina {
-        width: 94%;
-        margin: 20px auto;
-    }
-
-    .contenido {
-        grid-template-columns: 1fr;
-    }
-
-    .directo iframe {
-        min-height: 300px;
-    }
-
-    #mensajes {
-        min-height: 280px;
-    }
-}
-.oculto {
-    display: none !important;
-}
+/* =========================
+   PANTALLA OFFLINE
+   ========================= */
 
 .offline {
+    position: relative;
+
     width: 100%;
     height: 450px;
 
     display: flex !important;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
 
     text-align: center;
 
- background-image: url("offline.png");
+    background-image: url("offline.png");
 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    border-radius: 8px;
-    padding: 30px;
-    position: relative;
+    border-radius: 11px;
+
+    overflow: hidden;
 }
 
+
+/* OCULTAR */
+
+.oculto {
+    display: none !important;
+}
+
+
+/* =========================
+   BOTONES OFFLINE
+   ========================= */
+
+.botones-offline {
+    position: absolute;
+
+    top: 24px;
+    right: 24px;
+
+    display: flex;
+
+    gap: 10px;
+
+    z-index: 5;
+}
+
+
+.boton-social {
+    padding: 10px 18px;
+
+    background: var(--violet);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    border: 2px solid #050510;
+    border-radius: 9px;
+
+    box-shadow:
+        0 0 0 1px rgba(255, 45, 247, .55);
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.boton-social:hover {
+    background: var(--cyan);
+
+    color: var(--dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   ELEMENTOS OFFLINE
+   POR SI LOS USAMOS DESPUÉS
+   ========================= */
+
 .estado-offline {
-    color: #a783ff;
-    font-weight: bold;
+    color: var(--magenta);
+
+    font-weight: 900;
     letter-spacing: 2px;
 
     margin-bottom: 15px;
 }
 
+
 .offline h2 {
-    color: #00e5ff;
     margin: 5px 0 20px;
+
+    color: var(--cyan);
 }
+
 
 .horario {
     color: white;
+
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 900;
 }
+
 
 .horario span {
     display: block;
 
     margin-top: 8px;
 
-    color: #a783ff;
+    color: var(--magenta);
+
     font-size: 20px;
 }
 
+
 .offline p {
-    color: #aaa;
     margin: 25px 0;
+
+    color: rgba(255, 255, 255, .7);
 }
 
-.boton-twitch {
-    text-decoration: none;
 
-    background: #6c3cff;
+/* =========================
+   PANEL CHAT
+   ========================= */
+
+.chat {
+    min-width: 0;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--dark);
+
+    border: 3px solid #050510;
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 0 2px var(--cyan);
+}
+
+
+/* =========================
+   TÍTULO CHAT
+   ========================= */
+
+.chat h2 {
+    margin: 4px 0 16px;
+
+    color: var(--cyan);
+
+    text-align: center;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    letter-spacing: .04em;
+
+    text-shadow:
+        2px 2px 0 #050510;
+}
+
+
+/* =========================
+   CONTENEDOR CHAT TWITCH
+   ========================= */
+
+#mensajes {
+    flex: 1;
+
+    min-height: 350px;
+
+    padding: 10px;
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+
+    background: #080a10;
+
+    border: 2px solid var(--panel);
+    border-radius: 12px;
+}
+
+
+/* IFRAME CHAT TWITCH */
+
+#mensajes iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 330px;
+
+    border: none;
+    border-radius: 8px;
+}
+
+
+/* MENSAJES PROPIOS
+   POR SI LOS USAMOS DESPUÉS */
+
+#mensajes p {
+    margin: 8px 0;
+
+    line-height: 1.4;
+}
+
+
+#mensajes strong {
+    color: var(--cyan);
+}
+
+
+/* =========================
+   ENTRADA DE MENSAJES
+   ========================= */
+
+.entrada {
+    display: flex;
+
+    gap: 8px;
+
+    width: 100%;
+}
+
+
+/* INPUT */
+
+#mensaje {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 12px;
+
+    background: #080a10;
+
     color: white;
+
+    border: 2px solid var(--panel);
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+#mensaje::placeholder {
+    color: rgba(255, 255, 255, .45);
+}
+
+
+#mensaje:focus {
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 0 0 1px rgba(0, 234, 255, .25);
+}
+
+
+/* =========================
+   BOTÓN ENVIAR
+   ========================= */
+
+#enviar {
+    padding: 0 18px;
+
+    background: var(--panel);
+
+    color: var(--cyan);
+
+    border: 2px solid var(--cyan);
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+#enviar:hover {
+    background: var(--cyan);
+
+    color: var(--dark);
+
+    transform: translateY(-1px);
+}
+
+
+#enviar:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   BOTÓN TWITCH ANTIGUO
+   POR COMPATIBILIDAD
+   ========================= */
+
+.boton-twitch {
+    display: inline-block;
 
     padding: 12px 22px;
 
-    border-radius: 7px;
+    background: var(--violet);
 
-    font-weight: bold;
-}
-
-.boton-twitch:hover {
-    background: #00e5ff;
-    color: #080a10;
-}
-
-.botones-offline {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-
-    display: flex;
-    gap: 8px;
-}
-
-.boton-social {
-    padding: 10px 18px;
-
-    background: #6c3cff;
     color: white;
 
     text-decoration: none;
-    font-weight: bold;
 
-    border-radius: 7px;
+    font-weight: 900;
+
+    border: 2px solid #050510;
+    border-radius: 9px;
+
+    box-shadow:
+        0 0 0 1px var(--cyan);
 }
 
-.boton-social:hover {
-    background: #00e5ff;
-    color: #080a10;
+
+.boton-twitch:hover {
+    background: var(--cyan);
+
+    color: var(--dark);
+}
+
+
+/* =========================
+   TABLETS / CELULARES
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .pagina {
+        width: 94%;
+
+        margin: 20px auto 30px;
+    }
+
+
+    .pagina h1 {
+        margin-bottom: 20px;
+
+        font-size: 25px;
+    }
+
+
+    .contenido {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .directo iframe {
+        min-height: 300px;
+    }
+
+
+    .offline {
+        height: 300px;
+
+        background-size: cover;
+        background-position: center;
+    }
+
+
+    .botones-offline {
+        top: 14px;
+        right: 14px;
+
+        gap: 7px;
+    }
+
+
+    .boton-social {
+        padding: 8px 12px;
+
+        font-size: 13px;
+    }
+
+
+    #mensajes {
+        min-height: 300px;
+    }
+
+
+    #mensajes iframe {
+        min-height: 280px;
+    }
+}
+
+
+/* =========================
+   CELULARES PEQUEÑOS
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .pagina {
+        width: 92%;
+    }
+
+
+    .directo,
+    .chat {
+        border-radius: 14px;
+    }
+
+
+    .chat {
+        padding: 12px;
+    }
+
+
+    .entrada {
+        gap: 6px;
+    }
+
+
+    #mensaje {
+        padding: 10px;
+    }
+
+
+    #enviar {
+        padding: 0 13px;
+    }
+
+
+    .botones-offline {
+        top: 10px;
+        right: 10px;
+    }
+
+
+    .boton-social {
+        padding: 7px 10px;
+
+        font-size: 12px;
+    }
 }
