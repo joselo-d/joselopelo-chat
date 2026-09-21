@@ -2,47 +2,120 @@ const boton = document.getElementById("enviar");
 const input = document.getElementById("mensaje");
 const mensajes = document.getElementById("mensajes");
 
-boton.addEventListener("click", function () {
+// --------------------
+// CHAT WEB → JP BOT → TWITCH
+// --------------------
 
-    const texto = input.value;
+async function enviarMensaje() {
 
-    if (texto !== "") {
+    const texto = input.value.trim();
 
-        const nuevoMensaje = document.createElement("p");
-
-        nuevoMensaje.innerHTML =
-            "<strong>Joselo:</strong> " + texto;
-
-        mensajes.appendChild(nuevoMensaje);
-
-        input.value = "";
+    if (texto === "") {
+        return;
     }
 
-});
+    boton.disabled = true;
+
+    try {
+
+        const response = await fetch(
+            "https://jpbot.josediazdungey.workers.dev/chat/send",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    username: "Web",
+                    message: texto
+                })
+            }
+        );
+
+        if (!response.ok) {
+
+            const error = await response.text();
+
+            console.error(
+                "Error JP Bot:",
+                error
+            );
+
+            return;
+        }
+
+        input.value = "";
+
+    } catch (error) {
+
+        console.error(
+            "No se pudo conectar con JP Bot:",
+            error
+        );
+
+    } finally {
+
+        boton.disabled = false;
+
+    }
+}
+
+boton.addEventListener(
+    "click",
+    enviarMensaje
+);
+
+// Enviar también con ENTER
+input.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Enter") {
+            enviarMensaje();
+        }
+
+    }
+);
+
+
 // --------------------
 // TWITCH
 // --------------------
 
-const player = new Twitch.Player("twitch-player", {
-    channel: "joselopelo",
-    width: "100%",
-    height: 450,
-    autoplay: false
-});
+const player = new Twitch.Player(
+    "twitch-player",
+    {
+        channel: "joselopelo",
+        width: "100%",
+        height: 450,
+        autoplay: false
+    }
+);
 
-const offline = document.getElementById("offline");
-const twitchPlayer = document.getElementById("twitch-player");
+const offline =
+    document.getElementById("offline");
 
-player.addEventListener(Twitch.Player.ONLINE, function () {
+const twitchPlayer =
+    document.getElementById("twitch-player");
 
-    twitchPlayer.style.display = "block";
-    offline.classList.add("oculto");
+player.addEventListener(
+    Twitch.Player.ONLINE,
+    function () {
 
-});
+        twitchPlayer.style.display = "block";
+        offline.classList.add("oculto");
 
-player.addEventListener(Twitch.Player.OFFLINE, function () {
+    }
+);
 
-    twitchPlayer.style.display = "none";
-    offline.classList.remove("oculto");
+player.addEventListener(
+    Twitch.Player.OFFLINE,
+    function () {
 
-});
+        twitchPlayer.style.display = "none";
+        offline.classList.remove("oculto");
+
+    }
+);
