@@ -5,7 +5,7 @@ const mensajes = document.getElementById("mensajes");
 // TWITCH → CHAT WEB
 // --------------------
 
-let ultimoMensajeId = null;
+const mensajesMostrados = new Set();
 
 async function actualizarChat() {
 
@@ -28,40 +28,47 @@ async function actualizarChat() {
             return;
         }
 
-        const mensaje = data.messages[0];
 
-        // Evita mostrar varias veces
-        // el mismo mensaje
-        if (mensaje.id === ultimoMensajeId) {
-            return;
+        for (const mensaje of data.messages) {
+
+            // Si ya lo mostramos, no repetirlo
+            if (mensajesMostrados.has(mensaje.id)) {
+                continue;
+            }
+
+            mensajesMostrados.add(mensaje.id);
+
+
+            const nuevoMensaje =
+                document.createElement("div");
+
+            nuevoMensaje.className = "mensaje";
+
+
+            const usuario =
+                document.createElement("strong");
+
+            usuario.textContent =
+                mensaje.user + ": ";
+
+
+            const texto =
+                document.createElement("span");
+
+            texto.textContent =
+                mensaje.message;
+
+
+            nuevoMensaje.appendChild(usuario);
+            nuevoMensaje.appendChild(texto);
+
+            mensajes.appendChild(nuevoMensaje);
         }
 
-        ultimoMensajeId = mensaje.id;
-
-        const nuevoMensaje =
-            document.createElement("div");
-
-        nuevoMensaje.className = "mensaje";
-
-        const usuario =
-            document.createElement("strong");
-
-        usuario.textContent =
-            mensaje.user + ": ";
-
-        const texto =
-            document.createElement("span");
-
-        texto.textContent =
-            mensaje.message;
-
-        nuevoMensaje.appendChild(usuario);
-        nuevoMensaje.appendChild(texto);
-
-        mensajes.appendChild(nuevoMensaje);
 
         mensajes.scrollTop =
             mensajes.scrollHeight;
+
 
     } catch (error) {
 
@@ -73,7 +80,7 @@ async function actualizarChat() {
 }
 
 
-// Consultar JP Bot cada 2 segundos
+// Leer Twitch cada 2 segundos
 actualizarChat();
 
 setInterval(
