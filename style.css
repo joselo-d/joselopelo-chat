@@ -526,7 +526,8 @@ body {
         min-height: 300px;
     }
 
-    .offline {
+   .offline {
+    width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
 
