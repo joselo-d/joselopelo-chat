@@ -1,5 +1,3 @@
-const boton = document.getElementById("enviar");
-const input = document.getElementById("mensaje");
 const mensajes = document.getElementById("mensajes");
 // --------------------
 // TWITCH → CHAT WEB
