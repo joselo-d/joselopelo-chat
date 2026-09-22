@@ -526,13 +526,15 @@ body {
         min-height: 300px;
     }
 
-
     .offline {
-        height: 300px;
+    height: auto;
+    aspect-ratio: 16 / 9;
 
-        background-size: cover;
-        background-position: center;
-    }
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
 
 
     .botones-offline {
