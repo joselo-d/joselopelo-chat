@@ -85,7 +85,7 @@ actualizarChat();
 
 setInterval(
     actualizarChat,
-    2000
+    1000
 );
 // --------------------
 // CHAT WEB → JP BOT → TWITCH
