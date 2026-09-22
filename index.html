@@ -19,14 +19,23 @@
 
     <main class="pagina">
 
+
         <!-- =========================
-             TÍTULO
+             CABECERA
              ========================= -->
 
-       <div class="web-header">
-    <span>🤖 JP BOT ONLINE</span>
-    <strong>JOSELO<span>PELO</span></strong>
-</div>
+        <div class="web-header">
+
+            <span>
+                🤖 JP BOT ONLINE
+            </span>
+
+            <strong>
+                JOSELO<span>PELO</span>
+            </strong>
+
+        </div>
+
 
 
         <!-- =========================
@@ -43,80 +52,80 @@
             <section class="directo">
 
 
-                <!--
-                    El reproductor de Twitch
-                    se genera desde script.js
-                -->
+                <!-- REPRODUCTOR TWITCH -->
 
                 <div id="twitch-player"></div>
 
 
 
-                <!-- =========================
-                     PANTALLA OFFLINE
-                     ========================= -->
+                <!-- PANTALLA OFFLINE -->
 
                 <div
                     id="offline"
                     class="offline oculto"
                 >
+                </div>
 
 
-                    <!-- BOTONES -->
 
-                    <div class="botones-offline">
+                <!-- =========================
+                     BARRA BAJO EL GAMEPLAY
+                     ========================= -->
 
-                        <a
-                            href="https://www.twitch.tv/joselopelo"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="boton-social"
-                        >
-                            Twitch
-                        </a>
+                <div class="barra-gameplay">
 
 
-                        <a
-                            href="https://discord.gg/BAczJx9xTh"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="boton-social"
-                        >
-                            Discord
-                        </a>
+                    <a
+                        href="https://www.twitch.tv/joselopelo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton-gameplay"
+                    >
+                        Twitch
+                    </a>
 
-                    </div>
+
+                    <a
+                        href="https://discord.gg/BAczJx9xTh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton-gameplay"
+                    >
+                        Discord
+                    </a>
+
 
                 </div>
+
 
             </section>
 
 
 
             <!-- =========================
-                 CHAT DE LA COMUNIDAD
+                 CHAT TWITCH
                  ========================= -->
 
             <section class="chat">
 
 
-              <h2>
-    💬 Chat de Twitch
-</h2>
-
-<iframe
-    id="twitch-chat"
-    src="https://www.twitch.tv/embed/joselopelo/chat?parent=joselo-d.github.io"
-    width="100%"
-    height="500"
-    frameborder="0">
-</iframe>
+                <h2>
+                    💬 Chat de Twitch
+                </h2>
 
 
+                <iframe
+                    id="twitch-chat"
+                    src="https://www.twitch.tv/embed/joselopelo/chat?parent=joselo-d.github.io"
+                    width="100%"
+                    height="500"
+                    frameborder="0"
+                >
+                </iframe>
 
-              
 
             </section>
+
 
         </div>
 
@@ -131,11 +140,13 @@
     <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 
 
+
     <!-- =========================
-         SCRIPT DE JOSELOPELO
+         SCRIPT JOSELOPELO
          ========================= -->
 
     <script src="script.js"></script>
+
 
 </body>
 
