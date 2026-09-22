@@ -1,7 +1,85 @@
 const boton = document.getElementById("enviar");
 const input = document.getElementById("mensaje");
 const mensajes = document.getElementById("mensajes");
+// --------------------
+// TWITCH → CHAT WEB
+// --------------------
 
+let ultimoMensajeId = null;
+
+async function actualizarChat() {
+
+    try {
+
+        const response = await fetch(
+            "https://jpbot.josediazdungey.workers.dev/chat/messages"
+        );
+
+        if (!response.ok) {
+            return;
+        }
+
+        const data = await response.json();
+
+        if (
+            !data.messages ||
+            data.messages.length === 0
+        ) {
+            return;
+        }
+
+        const mensaje = data.messages[0];
+
+        // Evita mostrar varias veces
+        // el mismo mensaje
+        if (mensaje.id === ultimoMensajeId) {
+            return;
+        }
+
+        ultimoMensajeId = mensaje.id;
+
+        const nuevoMensaje =
+            document.createElement("div");
+
+        nuevoMensaje.className = "mensaje";
+
+        const usuario =
+            document.createElement("strong");
+
+        usuario.textContent =
+            mensaje.user + ": ";
+
+        const texto =
+            document.createElement("span");
+
+        texto.textContent =
+            mensaje.message;
+
+        nuevoMensaje.appendChild(usuario);
+        nuevoMensaje.appendChild(texto);
+
+        mensajes.appendChild(nuevoMensaje);
+
+        mensajes.scrollTop =
+            mensajes.scrollHeight;
+
+    } catch (error) {
+
+        console.error(
+            "Error leyendo el chat:",
+            error
+        );
+    }
+}
+
+
+// Consultar JP Bot cada 2 segundos
+actualizarChat();
+
+setInterval(
+    actualizarChat,
+    2000
+);
 // --------------------
 // CHAT WEB → JP BOT → TWITCH
 // --------------------
