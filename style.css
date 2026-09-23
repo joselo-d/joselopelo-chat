@@ -714,3 +714,33 @@ body {
 
     font-size: 12px;
 }
+
+/* =========================
+   REPRODUCTOR VOD
+   ========================= */
+
+.vod-player-container {
+    width: 100%;
+    max-width: 820px;
+
+    margin: 0 auto 24px;
+
+    border: 2px solid #050510;
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 0 1px var(--cyan);
+
+    overflow: hidden;
+
+    background: #05030d;
+}
+
+.vod-player {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    border: none;
+}
