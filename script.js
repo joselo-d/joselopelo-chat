@@ -147,23 +147,29 @@ async function cargarVods() {
 
 
                 tarjeta.innerHTML = `
-                    <img
-                        class="vod-imagen"
-                        src="${miniatura}"
-                        alt=""
-                        loading="lazy"
-                    >
+    <div class="vod-miniatura">
 
-                    <strong>
-                        ${video.title}
-                    </strong>
+        <img
+            class="vod-imagen"
+            src="${miniatura}"
+            alt=""
+            loading="lazy"
+        >
 
-                    <span>
-                        ${fechaTexto}
-                        · ${video.duration}
-                    </span>
-                `;
+        <span class="vod-duracion">
+            ${video.duration}
+        </span>
 
+    </div>
+
+    <strong>
+        ${video.title}
+    </strong>
+
+    <span class="vod-fecha">
+        ${fechaTexto}
+    </span>
+`;
 
                 vodsGrid.appendChild(
                     tarjeta
