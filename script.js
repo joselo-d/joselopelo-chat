@@ -96,53 +96,79 @@ async function cargarVods() {
         }
 
 
-        // Crear una tarjeta por cada VOD
-        data.videos.forEach(
-            function (video) {
+       // Crear una tarjeta por cada VOD
+data.videos.forEach(
+    function (video) {
 
-                const tarjeta =
-                    document.createElement("a");
+        const tarjeta =
+            document.createElement("a");
 
-                tarjeta.className =
-                    "vod-card";
+        tarjeta.className =
+            "vod-card";
 
-               tarjeta.href = "#vods";
-
-tarjeta.addEventListener(
-    "click",
-    function (event) {
-
-        event.preventDefault();
-
-        const vodPlayer =
-            document.getElementById("vod-player");
-
-        const vodContainer =
-            document.getElementById(
-                "vod-player-container"
-            );
+        tarjeta.href = "#vods";
 
 
-        vodPlayer.src =
-            "https://player.twitch.tv/" +
-            "?video=" + video.id +
-            "&parent=joselo-d.github.io" +
-            "&autoplay=true";
+        tarjeta.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
 
 
-        vodContainer.classList.remove(
-            "oculto"
+                // Quitar selección anterior
+                document
+                    .querySelectorAll(".vod-card")
+                    .forEach(
+                        function (card) {
+
+                            card.classList.remove(
+                                "vod-activo"
+                            );
+
+                        }
+                    );
+
+
+                // Marcar este VOD como activo
+                tarjeta.classList.add(
+                    "vod-activo"
+                );
+
+
+                const vodPlayer =
+                    document.getElementById(
+                        "vod-player"
+                    );
+
+                const vodContainer =
+                    document.getElementById(
+                        "vod-player-container"
+                    );
+
+
+                // Cargar VOD en el reproductor
+                vodPlayer.src =
+                    "https://player.twitch.tv/" +
+                    "?video=" + video.id +
+                    "&parent=joselo-d.github.io" +
+                    "&autoplay=true";
+
+
+                // Mostrar reproductor
+                vodContainer.classList.remove(
+                    "oculto"
+                );
+
+
+                // Llevar suavemente al reproductor
+                vodContainer.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
         );
-
-
-        vodContainer.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }
-);
-
 
                 // Miniatura Twitch
                 const miniatura =
