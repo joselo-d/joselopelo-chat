@@ -623,3 +623,16 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+.vod-imagen {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    margin-bottom: 10px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
