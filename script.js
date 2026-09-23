@@ -1,5 +1,5 @@
 // ================================
-// REPRODUCTOR TWITCH
+// REPRODUCTOR TWITCH EN VIVO
 // ================================
 
 const player = new Twitch.Player(
@@ -29,7 +29,10 @@ player.addEventListener(
     function () {
 
         twitchPlayer.style.display = "block";
-        offline.classList.add("oculto");
+
+        offline.classList.add(
+            "oculto"
+        );
 
     }
 );
@@ -44,10 +47,14 @@ player.addEventListener(
     function () {
 
         twitchPlayer.style.display = "none";
-        offline.classList.remove("oculto");
+
+        offline.classList.remove(
+            "oculto"
+        );
 
     }
 );
+
 
 // ================================
 // ÚLTIMOS VODS DE TWITCH
@@ -56,34 +63,42 @@ player.addEventListener(
 async function cargarVods() {
 
     const vodsGrid =
-        document.getElementById("vods-grid");
+        document.getElementById(
+            "vods-grid"
+        );
 
     if (!vodsGrid) {
         return;
     }
 
+
     try {
 
+        // Pedir VODs al Worker
         const response =
             await fetch(
                 "https://jpbot.josediazdungey.workers.dev/vods"
             );
 
+
         if (!response.ok) {
+
             throw new Error(
                 "No se pudieron cargar los VODs"
             );
+
         }
+
 
         const data =
             await response.json();
 
 
-        // Limpiar mensaje "Cargando..."
+        // Quitar mensaje "Cargando..."
         vodsGrid.innerHTML = "";
 
 
-        // Si no hay VODs
+        // Si Twitch no devuelve videos
         if (
             !data.videos ||
             data.videos.length === 0
@@ -93,84 +108,152 @@ async function cargarVods() {
                 "<p>No hay directos guardados.</p>";
 
             return;
+
         }
 
 
-       // Crear una tarjeta por cada VOD
-data.videos.forEach(
-    function (video) {
+        // ================================
+        // CREAR TARJETAS
+        // ================================
 
-        const tarjeta =
-            document.createElement("a");
+        data.videos.forEach(
+            function (video) {
 
-        tarjeta.className =
-            "vod-card";
-
-        tarjeta.href = "#vods";
-
-
-        tarjeta.addEventListener(
-            "click",
-            function (event) {
-
-                event.preventDefault();
+                const tarjeta =
+                    document.createElement(
+                        "a"
+                    );
 
 
-                // Quitar selección anterior
-                document
-                    .querySelectorAll(".vod-card")
-                    .forEach(
-                        function (card) {
+                tarjeta.className =
+                    "vod-card";
 
-                            card.classList.remove(
-                                "vod-activo"
+                tarjeta.href =
+                    "#vods";
+
+
+                // ================================
+                // CLICK EN UN VOD
+                // ================================
+
+                tarjeta.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.preventDefault();
+
+
+                        // ------------------------
+                        // Quitar VOD activo anterior
+                        // ------------------------
+
+                        document
+                            .querySelectorAll(
+                                ".vod-card"
+                            )
+                            .forEach(
+                                function (card) {
+
+                                    card.classList.remove(
+                                        "vod-activo"
+                                    );
+
+                                }
                             );
 
-                        }
-                    );
+
+                        // ------------------------
+                        // Marcar VOD seleccionado
+                        // ------------------------
+
+                        tarjeta.classList.add(
+                            "vod-activo"
+                        );
 
 
-                // Marcar este VOD como activo
-                tarjeta.classList.add(
-                    "vod-activo"
+                        // ------------------------
+                        // Contenedor reproductor
+                        // ------------------------
+
+                        const vodContainer =
+                            document.getElementById(
+                                "vod-player-container"
+                            );
+
+
+                        const vodPlayerElement =
+                            document.getElementById(
+                                "vod-player"
+                            );
+
+
+                        // Mostrar reproductor
+                        vodContainer.classList.remove(
+                            "oculto"
+                        );
+
+
+                        // Limpiar reproductor anterior
+                        vodPlayerElement.innerHTML = "";
+
+
+                        // ------------------------
+                        // Crear reproductor Twitch
+                        // ------------------------
+
+                        const vodPlayer =
+                            new Twitch.Player(
+                                "vod-player",
+                                {
+                                    video:
+                                        video.id,
+
+                                    width:
+                                        "100%",
+
+                                    height:
+                                        "100%",
+
+                                    autoplay:
+                                        true
+                                }
+                            );
+
+
+                        // ------------------------
+                        // Reproducir cuando esté listo
+                        // ------------------------
+
+                        vodPlayer.addEventListener(
+                            Twitch.Player.READY,
+                            function () {
+
+                                vodPlayer.play();
+
+                            }
+                        );
+
+
+                        // ------------------------
+                        // Ir al reproductor
+                        // ------------------------
+
+                        vodContainer.scrollIntoView({
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "center"
+                        });
+
+                    }
                 );
 
 
-                const vodPlayer =
-                    document.getElementById(
-                        "vod-player"
-                    );
+                // ================================
+                // MINIATURA
+                // ================================
 
-                const vodContainer =
-                    document.getElementById(
-                        "vod-player-container"
-                    );
-
-
-                // Cargar VOD en el reproductor
-                vodPlayer.src =
-                    "https://player.twitch.tv/" +
-                    "?video=" + video.id +
-                    "&parent=joselo-d.github.io" +
-                    "&autoplay=true";
-
-
-                // Mostrar reproductor
-                vodContainer.classList.remove(
-                    "oculto"
-                );
-
-
-                // Llevar suavemente al reproductor
-                vodContainer.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }
-        );
-
-                // Miniatura Twitch
                 const miniatura =
                     video.thumbnail_url
                         .replace(
@@ -183,48 +266,63 @@ data.videos.forEach(
                         );
 
 
-                // Fecha
+                // ================================
+                // FECHA
+                // ================================
+
                 const fecha =
                     new Date(
                         video.created_at
                     );
 
+
                 const fechaTexto =
                     fecha.toLocaleDateString(
                         "es-UY",
                         {
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric"
+                            day:
+                                "2-digit",
+
+                            month:
+                                "2-digit",
+
+                            year:
+                                "numeric"
                         }
                     );
 
 
+                // ================================
+                // CONTENIDO DE LA TARJETA
+                // ================================
+
                 tarjeta.innerHTML = `
-    <div class="vod-miniatura">
+                    <div class="vod-miniatura">
 
-        <img
-            class="vod-imagen"
-            src="${miniatura}"
-            alt=""
-            loading="lazy"
-        >
+                        <img
+                            class="vod-imagen"
+                            src="${miniatura}"
+                            alt=""
+                            loading="lazy"
+                        >
 
-        <span class="vod-duracion">
-            ${video.duration}
-        </span>
+                        <span class="vod-duracion">
+                            ${video.duration}
+                        </span>
 
-    </div>
+                    </div>
 
-    <strong>
-        ${video.title}
-    </strong>
+                    <strong>
+                        ${video.title}
+                    </strong>
 
-    <span class="vod-fecha">
-        ${fechaTexto}
-    </span>
-`;
+                    <span class="vod-fecha">
+                        ${fechaTexto}
+                    </span>
+                `;
 
+
+                // Agregar tarjeta
                 vodsGrid.appendChild(
                     tarjeta
                 );
@@ -234,6 +332,11 @@ data.videos.forEach(
 
     }
 
+
+    // ================================
+    // ERROR
+    // ================================
+
     catch (error) {
 
         console.error(
@@ -241,12 +344,17 @@ data.videos.forEach(
             error
         );
 
+
         vodsGrid.innerHTML =
             "<p>No se pudieron cargar los últimos directos.</p>";
 
     }
+
 }
 
 
-// Cargar VODs al abrir la página
+// ================================
+// CARGAR VODS AL ABRIR LA WEB
+// ================================
+
 cargarVods();
