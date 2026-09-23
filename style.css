@@ -624,15 +624,93 @@ body {
     }
 }
 
+/* =========================
+   TARJETAS VODS
+   ========================= */
+
+.vod-card {
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.vod-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 0 1px var(--cyan),
+        0 6px 18px rgba(0, 234, 255, .15);
+}
+
+
+/* MINIATURA */
+
+.vod-miniatura {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+}
+
 .vod-imagen {
     display: block;
 
     width: 100%;
+
     aspect-ratio: 16 / 9;
 
-    margin-bottom: 10px;
-
     object-fit: cover;
+}
 
-    border-radius: 8px;
+
+/* DURACIÓN */
+
+.vod-duracion {
+    position: absolute;
+
+    right: 7px;
+    bottom: 7px;
+
+    padding: 3px 7px;
+
+    background: rgba(5, 3, 13, .9);
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    border-radius: 5px;
+}
+
+
+/* TÍTULO */
+
+.vod-card strong {
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    line-height: 1.3;
+}
+
+
+/* FECHA */
+
+.vod-fecha {
+    display: block;
+
+    margin-top: 7px;
+
+    color: rgba(255, 255, 255, .6);
+
+    font-size: 12px;
 }
