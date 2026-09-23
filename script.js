@@ -48,3 +48,145 @@ player.addEventListener(
 
     }
 );
+
+// ================================
+// ÚLTIMOS VODS DE TWITCH
+// ================================
+
+async function cargarVods() {
+
+    const vodsGrid =
+        document.getElementById("vods-grid");
+
+    if (!vodsGrid) {
+        return;
+    }
+
+    try {
+
+        const response =
+            await fetch(
+                "https://jpbot.josediazdungey.workers.dev/vods"
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "No se pudieron cargar los VODs"
+            );
+        }
+
+        const data =
+            await response.json();
+
+
+        // Limpiar mensaje "Cargando..."
+        vodsGrid.innerHTML = "";
+
+
+        // Si no hay VODs
+        if (
+            !data.videos ||
+            data.videos.length === 0
+        ) {
+
+            vodsGrid.innerHTML =
+                "<p>No hay directos guardados.</p>";
+
+            return;
+        }
+
+
+        // Crear una tarjeta por cada VOD
+        data.videos.forEach(
+            function (video) {
+
+                const tarjeta =
+                    document.createElement("a");
+
+                tarjeta.className =
+                    "vod-card";
+
+                tarjeta.href =
+                    video.url;
+
+                tarjeta.target =
+                    "_blank";
+
+                tarjeta.rel =
+                    "noopener noreferrer";
+
+
+                // Miniatura Twitch
+                const miniatura =
+                    video.thumbnail_url
+                        .replace(
+                            "%{width}",
+                            "640"
+                        )
+                        .replace(
+                            "%{height}",
+                            "360"
+                        );
+
+
+                // Fecha
+                const fecha =
+                    new Date(
+                        video.created_at
+                    );
+
+                const fechaTexto =
+                    fecha.toLocaleDateString(
+                        "es-UY",
+                        {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric"
+                        }
+                    );
+
+
+                tarjeta.innerHTML = `
+                    <img
+                        class="vod-imagen"
+                        src="${miniatura}"
+                        alt=""
+                        loading="lazy"
+                    >
+
+                    <strong>
+                        ${video.title}
+                    </strong>
+
+                    <span>
+                        ${fechaTexto}
+                        · ${video.duration}
+                    </span>
+                `;
+
+
+                vodsGrid.appendChild(
+                    tarjeta
+                );
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error cargando VODs:",
+            error
+        );
+
+        vodsGrid.innerHTML =
+            "<p>No se pudieron cargar los últimos directos.</p>";
+
+    }
+}
+
+
+// Cargar VODs al abrir la página
+cargarVods();
