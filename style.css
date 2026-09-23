@@ -319,150 +319,6 @@ body {
 
 
 /* =========================
-   CONTENEDOR CHAT TWITCH
-   ========================= */
-
-#mensajes {
-    flex: 1;
-
-    min-height: 350px;
-
-    padding: 10px;
-
-    margin-bottom: 14px;
-
-    overflow: hidden;
-
-    background: #080a10;
-
-    border: 2px solid var(--panel);
-    border-radius: 12px;
-}
-
-
-/* IFRAME CHAT TWITCH */
-
-#mensajes iframe {
-    display: block;
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 330px;
-
-    border: none;
-    border-radius: 8px;
-}
-
-
-/* MENSAJES PROPIOS
-   POR SI LOS USAMOS DESPUÉS */
-
-#mensajes p {
-    margin: 8px 0;
-
-    line-height: 1.4;
-}
-
-
-#mensajes strong {
-    color: var(--cyan);
-}
-
-
-/* =========================
-   ENTRADA DE MENSAJES
-   ========================= */
-
-.entrada {
-    display: flex;
-
-    gap: 8px;
-
-    width: 100%;
-}
-
-
-/* INPUT */
-
-#mensaje {
-    flex: 1;
-
-    min-width: 0;
-
-    padding: 11px 12px;
-
-    background: #080a10;
-
-    color: white;
-
-    border: 2px solid var(--panel);
-    border-radius: 9px;
-
-    outline: none;
-
-    font-family: inherit;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
-}
-
-
-#mensaje::placeholder {
-    color: rgba(255, 255, 255, .45);
-}
-
-
-#mensaje:focus {
-    border-color: var(--cyan);
-
-    box-shadow:
-        0 0 0 1px rgba(0, 234, 255, .25);
-}
-
-
-/* =========================
-   BOTÓN ENVIAR
-   ========================= */
-
-#enviar {
-    padding: 0 18px;
-
-    background: var(--panel);
-
-    color: var(--cyan);
-
-    border: 2px solid var(--cyan);
-    border-radius: 9px;
-
-    font-family: inherit;
-    font-weight: 900;
-
-    cursor: pointer;
-
-    transition:
-        background .2s ease,
-        color .2s ease,
-        transform .2s ease;
-}
-
-
-#enviar:hover {
-    background: var(--cyan);
-
-    color: var(--dark);
-
-    transform: translateY(-1px);
-}
-
-
-#enviar:active {
-    transform: translateY(0);
-}
-
-
-/* =========================
    BOTÓN TWITCH ANTIGUO
    POR COMPATIBILIDAD
    ========================= */
@@ -574,42 +430,22 @@ body {
         width: 92%;
     }
 
-
     .directo,
     .chat {
         border-radius: 14px;
     }
 
-
     .chat {
         padding: 12px;
     }
-
-
-    .entrada {
-        gap: 6px;
-    }
-
-
-    #mensaje {
-        padding: 10px;
-    }
-
-
-    #enviar {
-        padding: 0 13px;
-    }
-
 
     .botones-offline {
         top: 10px;
         right: 10px;
     }
 
-
     .boton-social {
         padding: 7px 10px;
-
         font-size: 12px;
     }
 }
@@ -657,4 +493,29 @@ body {
 
 .web-header strong span {
     color: #00eaff;
+}
+/* =========================
+   CHAT OFICIAL DE TWITCH
+   ========================= */
+
+#twitch-chat {
+    display: block;
+
+    width: 100%;
+    height: 480px;
+
+    border: none;
+}
+
+
+/* =========================
+   CHAT EN CELULAR
+   ========================= */
+
+@media (max-width: 800px) {
+
+    #twitch-chat {
+        height: 460px;
+    }
+
 }
