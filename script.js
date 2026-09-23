@@ -106,14 +106,42 @@ async function cargarVods() {
                 tarjeta.className =
                     "vod-card";
 
-                tarjeta.href =
-                    video.url;
+               tarjeta.href = "#vods";
 
-                tarjeta.target =
-                    "_blank";
+tarjeta.addEventListener(
+    "click",
+    function (event) {
 
-                tarjeta.rel =
-                    "noopener noreferrer";
+        event.preventDefault();
+
+        const vodPlayer =
+            document.getElementById("vod-player");
+
+        const vodContainer =
+            document.getElementById(
+                "vod-player-container"
+            );
+
+
+        vodPlayer.src =
+            "https://player.twitch.tv/" +
+            "?video=" + video.id +
+            "&parent=joselo-d.github.io" +
+            "&autoplay=true";
+
+
+        vodContainer.classList.remove(
+            "oculto"
+        );
+
+
+        vodContainer.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+);
 
 
                 // Miniatura Twitch
