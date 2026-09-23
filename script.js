@@ -1,95 +1,6 @@
-const mensajes = document.getElementById("mensajes");
-// --------------------
-// TWITCH → CHAT WEB
-// --------------------
-
-const mensajesMostrados = new Set();
-
-async function actualizarChat() {
-
-    try {
-
-        const response = await fetch(
-            "https://jpbot.josediazdungey.workers.dev/chat/messages"
-        );
-
-        if (!response.ok) {
-            return;
-        }
-
-        const data = await response.json();
-
-        if (
-            !data.messages ||
-            data.messages.length === 0
-        ) {
-            return;
-        }
-
-
-        for (const mensaje of data.messages) {
-
-            // Si ya lo mostramos, no repetirlo
-            if (mensajesMostrados.has(mensaje.id)) {
-                continue;
-            }
-
-            mensajesMostrados.add(mensaje.id);
-
-
-            const nuevoMensaje =
-                document.createElement("div");
-
-            nuevoMensaje.className = "mensaje";
-
-
-            const usuario =
-                document.createElement("strong");
-
-            usuario.textContent =
-                mensaje.user + ": ";
-
-
-            const texto =
-                document.createElement("span");
-
-            texto.textContent =
-                mensaje.message;
-
-
-            nuevoMensaje.appendChild(usuario);
-            nuevoMensaje.appendChild(texto);
-
-            mensajes.appendChild(nuevoMensaje);
-        }
-
-
-        mensajes.scrollTop =
-            mensajes.scrollHeight;
-
-
-    } catch (error) {
-
-        console.error(
-            "Error leyendo el chat:",
-            error
-        );
-    }
-}
-
-
-// Leer Twitch cada 2 segundos
-actualizarChat();
-
-setInterval(
-    actualizarChat,
-    1000
-);
-
-
-// --------------------
-// TWITCH
-// --------------------
+// ================================
+// REPRODUCTOR TWITCH
+// ================================
 
 const player = new Twitch.Player(
     "twitch-player",
@@ -101,11 +12,17 @@ const player = new Twitch.Player(
     }
 );
 
+
 const offline =
     document.getElementById("offline");
 
 const twitchPlayer =
     document.getElementById("twitch-player");
+
+
+// ================================
+// CANAL ONLINE
+// ================================
 
 player.addEventListener(
     Twitch.Player.ONLINE,
@@ -116,6 +33,11 @@ player.addEventListener(
 
     }
 );
+
+
+// ================================
+// CANAL OFFLINE
+// ================================
 
 player.addEventListener(
     Twitch.Player.OFFLINE,
