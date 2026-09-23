@@ -515,7 +515,7 @@ body {
 @media (max-width: 800px) {
 
     #twitch-chat {
-        height: 460px;
+        height: 400px;
     }
 
 }
