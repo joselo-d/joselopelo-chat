@@ -14,10 +14,14 @@ const player = new Twitch.Player(
 
 
 const offline =
-    document.getElementById("offline");
+    document.getElementById(
+        "offline"
+    );
 
 const twitchPlayer =
-    document.getElementById("twitch-player");
+    document.getElementById(
+        "twitch-player"
+    );
 
 
 // ================================
@@ -28,7 +32,8 @@ player.addEventListener(
     Twitch.Player.ONLINE,
     function () {
 
-        twitchPlayer.style.display = "block";
+        twitchPlayer.style.display =
+            "block";
 
         offline.classList.add(
             "oculto"
@@ -46,7 +51,8 @@ player.addEventListener(
     Twitch.Player.OFFLINE,
     function () {
 
-        twitchPlayer.style.display = "none";
+        twitchPlayer.style.display =
+            "none";
 
         offline.classList.remove(
             "oculto"
@@ -57,10 +63,78 @@ player.addEventListener(
 
 
 // ================================
+// ELEMENTOS VODS
+// ================================
+
+const vodPlayer =
+    document.getElementById(
+        "vod-player"
+    );
+
+const vodPlayerZone =
+    document.getElementById(
+        "vod-player-zone"
+    );
+
+const cerrarVod =
+    document.getElementById(
+        "cerrar-vod"
+    );
+
+
+// ================================
+// CERRAR VOD
+// ================================
+
+cerrarVod.addEventListener(
+    "click",
+    function () {
+
+
+        // Detener el vídeo
+        vodPlayer.src = "";
+
+
+        // Ocultar reproductor
+        vodPlayerZone.classList.add(
+            "oculto"
+        );
+
+
+        // Quitar estado activo
+        document
+            .querySelectorAll(
+                ".vod-card"
+            )
+            .forEach(
+                function (card) {
+
+                    card.classList.remove(
+                        "vod-activo"
+                    );
+
+                }
+            );
+
+
+        // Volver a la sección
+        document
+            .getElementById("vods")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+    }
+);
+
+
+// ================================
 // ÚLTIMOS VODS DE TWITCH
 // ================================
 
 async function cargarVods() {
+
 
     const vodsGrid =
         document.getElementById(
@@ -74,6 +148,7 @@ async function cargarVods() {
 
 
     try {
+
 
         // ================================
         // PEDIR VODS AL WORKER
@@ -98,7 +173,6 @@ async function cargarVods() {
             await response.json();
 
 
-        // Quitar "Cargando..."
         vodsGrid.innerHTML = "";
 
 
@@ -142,7 +216,7 @@ async function cargarVods() {
 
 
                 // ================================
-                // CLICK EN EL VOD
+                // CLICK EN VOD
                 // ================================
 
                 tarjeta.addEventListener(
@@ -153,9 +227,7 @@ async function cargarVods() {
                         event.preventDefault();
 
 
-                        // ------------------------
-                        // Quitar VOD activo anterior
-                        // ------------------------
+                        // Quitar activo anterior
 
                         document
                             .querySelectorAll(
@@ -172,36 +244,16 @@ async function cargarVods() {
                             );
 
 
-                        // ------------------------
-                        // Marcar VOD seleccionado
-                        // ------------------------
+                        // Marcar seleccionado
 
                         tarjeta.classList.add(
                             "vod-activo"
                         );
 
 
-                        // ------------------------
-                        // Buscar reproductor
-                        // ------------------------
-
-                        const vodPlayer =
-                            document.getElementById(
-                                "vod-player"
-                            );
-
-
-                        const vodContainer =
-                            document.getElementById(
-                                "vod-player-container"
-                            );
-
-
-                        // ------------------------
-                        // Cargar VOD de Twitch
-                        // IMPORTANTE:
-                        // Twitch necesita "v" antes del ID
-                        // ------------------------
+                        // ================================
+                        // CARGAR VOD
+                        // ================================
 
                         vodPlayer.src =
                             "https://player.twitch.tv/" +
@@ -210,25 +262,18 @@ async function cargarVods() {
                             "&autoplay=true";
 
 
-                        // ------------------------
-                        // Mostrar reproductor
-                        // ------------------------
+                        // Mostrar zona del reproductor
 
-                        vodContainer.classList.remove(
+                        vodPlayerZone.classList.remove(
                             "oculto"
                         );
 
 
-                        // ------------------------
-                        // Llevar pantalla al VOD
-                        // ------------------------
+                        // Ir al reproductor
 
-                        vodContainer.scrollIntoView({
-                            behavior:
-                                "smooth",
-
-                            block:
-                                "center"
+                        vodPlayerZone.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center"
                         });
 
 
@@ -279,7 +324,7 @@ async function cargarVods() {
 
 
                 // ================================
-                // CONTENIDO DE LA TARJETA
+                // CONTENIDO TARJETA
                 // ================================
 
                 tarjeta.innerHTML = `
@@ -311,10 +356,6 @@ async function cargarVods() {
 
                 `;
 
-
-                // ================================
-                // AGREGAR TARJETA
-                // ================================
 
                 vodsGrid.appendChild(
                     tarjeta
@@ -351,7 +392,7 @@ async function cargarVods() {
 
 
 // ================================
-// CARGAR VODS AL ABRIR LA WEB
+// CARGAR VODS
 // ================================
 
 cargarVods();
