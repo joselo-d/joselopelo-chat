@@ -67,6 +67,7 @@ async function cargarVods() {
             "vods-grid"
         );
 
+
     if (!vodsGrid) {
         return;
     }
@@ -74,7 +75,10 @@ async function cargarVods() {
 
     try {
 
-        // Pedir VODs al Worker
+        // ================================
+        // PEDIR VODS AL WORKER
+        // ================================
+
         const response =
             await fetch(
                 "https://jpbot.josediazdungey.workers.dev/vods"
@@ -94,11 +98,14 @@ async function cargarVods() {
             await response.json();
 
 
-        // Quitar mensaje "Cargando..."
+        // Quitar "Cargando..."
         vodsGrid.innerHTML = "";
 
 
-        // Si Twitch no devuelve videos
+        // ================================
+        // SIN VODS
+        // ================================
+
         if (
             !data.videos ||
             data.videos.length === 0
@@ -119,6 +126,7 @@ async function cargarVods() {
         data.videos.forEach(
             function (video) {
 
+
                 const tarjeta =
                     document.createElement(
                         "a"
@@ -128,17 +136,19 @@ async function cargarVods() {
                 tarjeta.className =
                     "vod-card";
 
+
                 tarjeta.href =
                     "#vods";
 
 
                 // ================================
-                // CLICK EN UN VOD
+                // CLICK EN EL VOD
                 // ================================
 
                 tarjeta.addEventListener(
                     "click",
                     function (event) {
+
 
                         event.preventDefault();
 
@@ -172,8 +182,14 @@ async function cargarVods() {
 
 
                         // ------------------------
-                        // Contenedor reproductor
+                        // Buscar reproductor
                         // ------------------------
+
+                        const vodPlayer =
+                            document.getElementById(
+                                "vod-player"
+                            );
+
 
                         const vodContainer =
                             document.getElementById(
@@ -181,61 +197,30 @@ async function cargarVods() {
                             );
 
 
-                        const vodPlayerElement =
-                            document.getElementById(
-                                "vod-player"
-                            );
+                        // ------------------------
+                        // Cargar VOD de Twitch
+                        // IMPORTANTE:
+                        // Twitch necesita "v" antes del ID
+                        // ------------------------
+
+                        vodPlayer.src =
+                            "https://player.twitch.tv/" +
+                            "?video=v" + video.id +
+                            "&parent=joselo-d.github.io" +
+                            "&autoplay=true";
 
 
+                        // ------------------------
                         // Mostrar reproductor
+                        // ------------------------
+
                         vodContainer.classList.remove(
                             "oculto"
                         );
 
 
-                        // Limpiar reproductor anterior
-                        vodPlayerElement.innerHTML = "";
-
-
                         // ------------------------
-                        // Crear reproductor Twitch
-                        // ------------------------
-
-                        const vodPlayer =
-                            new Twitch.Player(
-                                "vod-player",
-                                {
-                                    video:
-                                        video.id,
-
-                                    width:
-                                        "100%",
-
-                                    height:
-                                        "100%",
-
-                                    autoplay:
-                                        true
-                                }
-                            );
-
-
-                        // ------------------------
-                        // Reproducir cuando esté listo
-                        // ------------------------
-
-                        vodPlayer.addEventListener(
-                            Twitch.Player.READY,
-                            function () {
-
-                                vodPlayer.play();
-
-                            }
-                        );
-
-
-                        // ------------------------
-                        // Ir al reproductor
+                        // Llevar pantalla al VOD
                         // ------------------------
 
                         vodContainer.scrollIntoView({
@@ -245,6 +230,7 @@ async function cargarVods() {
                             block:
                                 "center"
                         });
+
 
                     }
                 );
@@ -297,6 +283,7 @@ async function cargarVods() {
                 // ================================
 
                 tarjeta.innerHTML = `
+
                     <div class="vod-miniatura">
 
                         <img
@@ -312,23 +299,31 @@ async function cargarVods() {
 
                     </div>
 
+
                     <strong>
                         ${video.title}
                     </strong>
 
+
                     <span class="vod-fecha">
                         ${fechaTexto}
                     </span>
+
                 `;
 
 
-                // Agregar tarjeta
+                // ================================
+                // AGREGAR TARJETA
+                // ================================
+
                 vodsGrid.appendChild(
                     tarjeta
                 );
 
+
             }
         );
+
 
     }
 
@@ -339,6 +334,7 @@ async function cargarVods() {
 
     catch (error) {
 
+
         console.error(
             "Error cargando VODs:",
             error
@@ -347,6 +343,7 @@ async function cargarVods() {
 
         vodsGrid.innerHTML =
             "<p>No se pudieron cargar los últimos directos.</p>";
+
 
     }
 
