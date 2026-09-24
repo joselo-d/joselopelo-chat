@@ -880,3 +880,204 @@ body {
 .vod-player-container {
     max-width: 700px;
 }
+/* =========================
+   MIS PROYECTOS
+   ========================= */
+
+.proyectos {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 32px auto 0;
+    padding: 22px;
+
+    background: var(--dark);
+
+    border: 3px solid #050510;
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 0 2px var(--cyan);
+}
+
+
+.proyectos h2 {
+    margin: 0;
+
+    text-align: center;
+
+    color: var(--cyan);
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+.proyectos-descripcion {
+    margin: 8px 0 20px;
+
+    text-align: center;
+
+    color:
+        rgba(255, 255, 255, .7);
+}
+
+
+/* =========================
+   GRID PROYECTOS
+   ========================= */
+
+.proyectos-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================
+   TARJETA PROYECTO
+   ========================= */
+
+.proyecto-card {
+    overflow: hidden;
+
+    background: var(--panel);
+
+    border: 2px solid #050510;
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 0 1px var(--cyan);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.proyecto-card:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 0 0 2px var(--cyan),
+        0 6px 20px
+        rgba(0, 234, 255, .18);
+}
+
+
+/* =========================
+   IMAGEN PROYECTO
+   ========================= */
+
+.proyecto-imagen {
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #080a10;
+}
+
+
+.proyecto-imagen img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   INFORMACIÓN PROYECTO
+   ========================= */
+
+.proyecto-info {
+    padding: 16px;
+}
+
+
+.proyecto-info h3 {
+    margin: 0 0 8px;
+
+    color: white;
+
+    font-size: 19px;
+    font-weight: 900;
+}
+
+
+.proyecto-info p {
+    min-height: 42px;
+
+    margin: 0 0 16px;
+
+    color:
+        rgba(255, 255, 255, .7);
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BOTÓN PROYECTO
+   ========================= */
+
+.proyecto-boton {
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    background: transparent;
+
+    color: var(--cyan);
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    border: 1px solid var(--cyan);
+    border-radius: 8px;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.proyecto-boton:hover {
+    background: var(--cyan);
+
+    color: var(--dark);
+}
+
+
+/* =========================
+   PROYECTOS EN CELULAR
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .proyectos {
+        margin-top: 22px;
+        padding: 16px;
+    }
+
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .proyecto-info p {
+        min-height: 0;
+    }
+
+}
