@@ -722,7 +722,6 @@ body {
 .vod-player-container {
     width: 100%;
     max-width: 820px;
-
     margin: 0 auto 24px;
 
     border: 2px solid #050510;
@@ -732,7 +731,6 @@ body {
         0 0 0 1px var(--cyan);
 
     overflow: hidden;
-
     background: #05030d;
 }
 
@@ -744,7 +742,6 @@ body {
 
     border: none;
 }
-
 /* =========================
    VOD ACTIVO
    ========================= */
