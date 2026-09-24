@@ -1,0 +1,297 @@
+/* =========================
+   GALLINAS FELICES
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100%;
+
+    background: #f1e3c5;
+
+    color: #29231c;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+}
+
+
+.pagina-gallinas {
+    width: 92%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+    padding: 30px 0 50px;
+}
+
+
+/* =========================
+   VOLVER
+   ========================= */
+
+.volver {
+    display: inline-block;
+
+    margin-bottom: 18px;
+    padding: 9px 15px;
+
+    color: #29231c;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    background: #fff8e8;
+
+    border: 2px solid #29231c;
+    border-radius: 7px;
+
+    box-shadow:
+        3px 3px 0 #29231c;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.volver:hover {
+    transform:
+        translate(2px, 2px);
+
+    box-shadow:
+        1px 1px 0 #29231c;
+}
+
+
+/* =========================
+   PORTADA
+   ========================= */
+
+.hero {
+    overflow: hidden;
+
+    background: #fff8e8;
+
+    border: 3px solid #29231c;
+    border-radius: 10px;
+
+    box-shadow:
+        6px 6px 0
+        rgba(41, 35, 28, .25);
+}
+
+
+.hero img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   PRESENTACIÓN
+   ========================= */
+
+.presentacion {
+    max-width: 760px;
+
+    margin: 38px auto;
+
+    text-align: center;
+}
+
+
+.etiqueta {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #a33924;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: .15em;
+}
+
+
+.presentacion h1 {
+    margin: 0;
+
+    color: #29231c;
+
+    font-size: 46px;
+    font-weight: 900;
+}
+
+
+.intro {
+    margin: 12px 0 20px;
+
+    color: #a33924;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+.presentacion p:not(.intro) {
+    margin: 10px auto;
+
+    color: #51483d;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BLOQUES
+   ========================= */
+
+.bloque {
+    margin-top: 24px;
+    padding: 24px;
+
+    background: #fff8e8;
+
+    border: 2px solid #29231c;
+    border-radius: 10px;
+
+    box-shadow:
+        4px 4px 0
+        rgba(41, 35, 28, .18);
+}
+
+
+.bloque h2 {
+    margin: 0 0 10px;
+
+    color: #a33924;
+
+    font-size: 21px;
+}
+
+
+.bloque p {
+    margin: 0 0 18px;
+
+    color: #51483d;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   PRÓXIMAMENTE
+   ========================= */
+
+.proximamente {
+    padding: 18px;
+
+    text-align: center;
+
+    color: #766a5b;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    background: #f5e9d0;
+
+    border: 2px dashed #b6a17e;
+    border-radius: 7px;
+}
+
+
+/* =========================
+   PIE
+   ========================= */
+
+footer {
+    margin-top: 36px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #766a5b;
+
+    font-size: 12px;
+}
+
+
+footer span {
+    font-weight: 900;
+}
+
+
+footer a {
+    color: #a33924;
+
+    text-decoration: none;
+
+    font-weight: 800;
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .pagina-gallinas {
+        width: 94%;
+
+        padding-top: 18px;
+    }
+
+
+    .presentacion {
+        margin: 26px auto;
+    }
+
+
+    .presentacion h1 {
+        font-size: 35px;
+    }
+
+
+    .intro {
+        font-size: 17px;
+    }
+
+
+    .bloque {
+        padding: 18px;
+    }
+
+
+    footer {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+}
