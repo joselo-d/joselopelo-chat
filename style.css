@@ -812,3 +812,71 @@ body {
     }
 
 }
+/* =========================
+   ZONA VOD ABIERTO
+   ========================= */
+
+.vod-player-zone {
+    width: 100%;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================
+   BOTÓN VOLVER
+   ========================= */
+
+.cerrar-vod {
+    display: block;
+
+    margin:
+        0 auto 14px;
+
+    padding:
+        8px 16px;
+
+    background: var(--panel);
+
+    color: var(--cyan);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    border:
+        2px solid #050510;
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 0 0 1px var(--cyan);
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.cerrar-vod:hover {
+    background: var(--cyan);
+
+    color: var(--dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   TAMAÑO REPRODUCTOR VOD
+   ========================= */
+
+.vod-player-container {
+    max-width: 700px;
+}
