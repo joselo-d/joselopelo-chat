@@ -21,21 +21,10 @@
 
 <script>
 
-    const historietas = [
-        "gallina-cap1.png",
-        "gallina-cap2.png",
-        "gallina-cap3.png",
-        "gallina-cap4.png",
-        "gallina-cap5.png",
-        "gallina-cap6.png",
-        "gallina-cap7.png",
-        "gallina-cap8.png",
-        "gallina-cap9.png"
-    ];
+document.addEventListener("DOMContentLoaded", function () {
 
-
-    let historietaActual = 0;
-
+    const tarjetas =
+        document.querySelectorAll(".historieta-card");
 
     const lector =
         document.getElementById("lector-historieta");
@@ -46,41 +35,45 @@
     const grid =
         document.getElementById("historietas-grid");
 
-    const botonAnterior =
+    const anterior =
         document.getElementById("hist-anterior");
 
-    const botonSiguiente =
+    const siguiente =
         document.getElementById("hist-siguiente");
 
-    const botonVolver =
+    const volver =
         document.getElementById("hist-volver");
 
 
+    let actual = 0;
 
-    function abrirHistorieta(indice) {
 
-        historietaActual = indice;
+    function mostrarHistorieta(indice) {
+
+        actual = indice;
+
+        const miniatura =
+            tarjetas[indice].querySelector("img");
 
         imagenGrande.src =
-            historietas[indice];
+            miniatura.src;
 
         imagenGrande.alt =
-            "Gallinas Felices - Historieta "
-            + (indice + 1);
+            miniatura.alt;
 
 
-        grid.classList.add("grid-oculto");
+        grid.style.display = "none";
 
         lector.classList.remove(
             "oculto-historieta"
         );
 
 
-        botonAnterior.disabled =
-            indice === 0;
+        anterior.disabled =
+            actual === 0;
 
-        botonSiguiente.disabled =
-            indice === historietas.length - 1;
+        siguiente.disabled =
+            actual === tarjetas.length - 1;
 
 
         lector.scrollIntoView({
@@ -91,28 +84,28 @@
     }
 
 
+    tarjetas.forEach(function (tarjeta, indice) {
 
-    document
-        .querySelectorAll(".historieta-card")
-        .forEach((tarjeta, indice) => {
+        tarjeta.addEventListener(
+            "click",
+            function () {
 
-            tarjeta.addEventListener(
-                "click",
-                () => abrirHistorieta(indice)
-            );
+                mostrarHistorieta(indice);
 
-        });
+            }
+        );
+
+    });
 
 
-
-    botonAnterior.addEventListener(
+    anterior.addEventListener(
         "click",
-        () => {
+        function () {
 
-            if (historietaActual > 0) {
+            if (actual > 0) {
 
-                abrirHistorieta(
-                    historietaActual - 1
+                mostrarHistorieta(
+                    actual - 1
                 );
 
             }
@@ -121,18 +114,14 @@
     );
 
 
-
-    botonSiguiente.addEventListener(
+    siguiente.addEventListener(
         "click",
-        () => {
+        function () {
 
-            if (
-                historietaActual
-                < historietas.length - 1
-            ) {
+            if (actual < tarjetas.length - 1) {
 
-                abrirHistorieta(
-                    historietaActual + 1
+                mostrarHistorieta(
+                    actual + 1
                 );
 
             }
@@ -141,19 +130,15 @@
     );
 
 
-
-    botonVolver.addEventListener(
+    volver.addEventListener(
         "click",
-        () => {
+        function () {
 
             lector.classList.add(
                 "oculto-historieta"
             );
 
-            grid.classList.remove(
-                "grid-oculto"
-            );
-
+            grid.style.display = "";
 
             document
                 .getElementById("historieta")
@@ -164,6 +149,8 @@
 
         }
     );
+
+});
 
 </script>
 <body>
