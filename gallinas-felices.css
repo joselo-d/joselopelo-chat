@@ -712,3 +712,15 @@ footer a {
     }
 
 }
+/* INDICADOR DE HISTORIETA */
+
+.hist-indicador {
+    margin-bottom: 12px;
+
+    color: #a33924;
+
+    font-size: 15px;
+    font-weight: 900;
+
+    text-align: center;
+}
