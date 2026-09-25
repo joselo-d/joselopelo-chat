@@ -724,3 +724,9 @@ footer a {
 
     text-align: center;
 }
+/* CONTROLES DEBAJO DE LA HISTORIETA */
+
+.lector-controles-abajo {
+    margin-top: 18px;
+    margin-bottom: 4px;
+}
