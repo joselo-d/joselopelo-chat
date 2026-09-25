@@ -89,70 +89,196 @@
 </section>
 
 
-        <!-- =========================
-             CAPÍTULOS
-             ========================= -->
+       <!-- =========================
+     CAPÍTULOS
+     ========================= -->
 
-        <section
-            class="bloque"
-            id="capitulos"
+<section
+    class="bloque"
+    id="capitulos"
+>
+
+    <div class="titulo-seccion">
+
+        <span class="numero-seccion">
+            01
+        </span>
+
+        <div>
+
+            <h2>
+                Capítulos
+            </h2>
+
+            <p>
+                Leé la historia de MONSTERRAS
+                desde el comienzo.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         LECTOR
+         ========================= -->
+
+    <div
+        id="lector-capitulo"
+        class="lector-capitulo oculto"
+    >
+
+        <div
+            id="capitulo-indicador"
+            class="capitulo-indicador"
+        >
+            Capítulo 1 de 2
+        </div>
+
+
+        <!-- CONTROLES SUPERIORES -->
+
+        <div class="lector-controles">
+
+            <button
+                id="capitulo-anterior"
+                type="button"
+            >
+                ← Anterior
+            </button>
+
+            <button
+                id="capitulo-volver"
+                type="button"
+            >
+                Volver a capítulos
+            </button>
+
+            <button
+                id="capitulo-siguiente"
+                type="button"
+            >
+                Siguiente →
+            </button>
+
+        </div>
+
+
+        <!-- PDF -->
+
+        <iframe
+            id="capitulo-pdf"
+            class="capitulo-pdf"
+            src=""
+            title="Lector de MONSTERRAS"
+        ></iframe>
+
+
+        <!-- CONTROLES INFERIORES -->
+
+        <div class="
+            lector-controles
+            lector-controles-abajo
+        ">
+
+            <button
+                id="capitulo-anterior-abajo"
+                type="button"
+            >
+                ← Anterior
+            </button>
+
+            <button
+                id="capitulo-siguiente-abajo"
+                type="button"
+            >
+                Siguiente →
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         LISTA DE CAPÍTULOS
+         ========================= -->
+
+    <div
+        id="capitulos-grid"
+        class="capitulos-grid"
+    >
+
+
+        <!-- CAPÍTULO 1 -->
+
+        <button
+            class="capitulo-card"
+            type="button"
+            data-pdf="monsterras-cap1.pdf.pdf"
         >
 
-            <div class="titulo-seccion">
+            <div class="capitulo-numero">
+                CAPÍTULO 01
+            </div>
 
-                <span class="numero-seccion">
-                    01
+            <div class="capitulo-contenido">
+
+                <h3>
+                    Día largo
+                </h3>
+
+                <p>
+                    El comienzo de la historia
+                    de Mauro Sosa.
+                </p>
+
+                <span class="leer-capitulo">
+                    Leer capítulo →
                 </span>
 
-                <div>
+            </div>
 
-                    <h2>
-                        Capítulos
-                    </h2>
+        </button>
 
-                    <p>
-                        Leé la historia de MONSTERRAS
-                        desde el comienzo.
-                    </p>
 
-                </div>
+
+        <!-- CAPÍTULO 2 -->
+
+        <button
+            class="capitulo-card"
+            type="button"
+            data-pdf="monsterras-cap2.pdf.pdf"
+        >
+
+            <div class="capitulo-numero">
+                CAPÍTULO 02
+            </div>
+
+            <div class="capitulo-contenido">
+
+                <h3>
+                    Capítulo 2
+                </h3>
+
+                <p>
+                    La historia continúa.
+                </p>
+
+                <span class="leer-capitulo">
+                    Leer capítulo →
+                </span>
 
             </div>
 
+        </button>
 
 
-            <!-- CAPÍTULO 1 -->
+    </div>
 
-            <div class="capitulos-grid">
-
-                <article class="capitulo-card proximamente">
-
-                    <div class="capitulo-numero">
-                        CAPÍTULO 01
-                    </div>
-
-                    <div class="capitulo-contenido">
-
-                        <h3>
-                            Día largo
-                        </h3>
-
-                        <p>
-                            El comienzo de la historia
-                            de Mauro Sosa.
-                        </p>
-
-                        <span class="estado-capitulo">
-                            Próximamente
-                        </span>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
+</section>
 
 
 
@@ -324,7 +450,275 @@
 
 
     </main>
+<script>
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const tarjetas =
+            document.querySelectorAll(
+                ".capitulo-card"
+            );
+
+        const lector =
+            document.getElementById(
+                "lector-capitulo"
+            );
+
+        const pdf =
+            document.getElementById(
+                "capitulo-pdf"
+            );
+
+        const grid =
+            document.getElementById(
+                "capitulos-grid"
+            );
+
+        const indicador =
+            document.getElementById(
+                "capitulo-indicador"
+            );
+
+        const anterior =
+            document.getElementById(
+                "capitulo-anterior"
+            );
+
+        const siguiente =
+            document.getElementById(
+                "capitulo-siguiente"
+            );
+
+        const anteriorAbajo =
+            document.getElementById(
+                "capitulo-anterior-abajo"
+            );
+
+        const siguienteAbajo =
+            document.getElementById(
+                "capitulo-siguiente-abajo"
+            );
+
+        const volver =
+            document.getElementById(
+                "capitulo-volver"
+            );
+
+
+        let actual = 0;
+
+
+
+        function mostrarCapitulo(indice) {
+
+            actual = indice;
+
+
+            /* INDICADOR */
+
+            indicador.textContent =
+                "Capítulo "
+                + (actual + 1)
+                + " de "
+                + tarjetas.length;
+
+
+            /* CARGAR PDF */
+
+            const archivo =
+                tarjetas[actual]
+                    .dataset.pdf;
+
+            pdf.src =
+                archivo + "#view=FitH";
+
+
+            /* OCULTAR TARJETAS */
+
+            grid.style.display =
+                "none";
+
+
+            /* MOSTRAR LECTOR */
+
+            lector.classList.remove(
+                "oculto"
+            );
+
+
+            /* BOTONES */
+
+            anterior.disabled =
+                actual === 0;
+
+            anteriorAbajo.disabled =
+                actual === 0;
+
+            siguiente.disabled =
+                actual ===
+                tarjetas.length - 1;
+
+            siguienteAbajo.disabled =
+                actual ===
+                tarjetas.length - 1;
+
+
+            /* SUBIR AL LECTOR */
+
+            lector.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+
+
+        /* =========================
+           ABRIR CAPÍTULO
+           ========================= */
+
+        tarjetas.forEach(
+            function (tarjeta, indice) {
+
+                tarjeta.addEventListener(
+                    "click",
+                    function () {
+
+                        mostrarCapitulo(
+                            indice
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =========================
+           ANTERIOR
+           ========================= */
+
+        anterior.addEventListener(
+            "click",
+            function () {
+
+                if (actual > 0) {
+
+                    mostrarCapitulo(
+                        actual - 1
+                    );
+
+                }
+
+            }
+        );
+
+
+        anteriorAbajo.addEventListener(
+            "click",
+            function () {
+
+                if (actual > 0) {
+
+                    mostrarCapitulo(
+                        actual - 1
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           SIGUIENTE
+           ========================= */
+
+        siguiente.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    actual <
+                    tarjetas.length - 1
+                ) {
+
+                    mostrarCapitulo(
+                        actual + 1
+                    );
+
+                }
+
+            }
+        );
+
+
+        siguienteAbajo.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    actual <
+                    tarjetas.length - 1
+                ) {
+
+                    mostrarCapitulo(
+                        actual + 1
+                    );
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================
+           VOLVER
+           ========================= */
+
+        volver.addEventListener(
+            "click",
+            function () {
+
+                lector.classList.add(
+                    "oculto"
+                );
+
+
+                /*
+                Quitamos el PDF para que
+                deje de estar cargado.
+                */
+
+                pdf.src = "";
+
+
+                grid.style.display = "";
+
+
+                document
+                    .getElementById(
+                        "capitulos"
+                    )
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+            }
+        );
+
+    }
+);
+
+</script>
 </body>
 
 </html>
