@@ -19,7 +19,153 @@
 
 </head>
 
+<script>
 
+    const historietas = [
+        "gallina-cap1.png",
+        "gallina-cap2.png",
+        "gallina-cap3.png",
+        "gallina-cap4.png",
+        "gallina-cap5.png",
+        "gallina-cap6.png",
+        "gallina-cap7.png",
+        "gallina-cap8.png",
+        "gallina-cap9.png"
+    ];
+
+
+    let historietaActual = 0;
+
+
+    const lector =
+        document.getElementById("lector-historieta");
+
+    const imagenGrande =
+        document.getElementById("historia-grande");
+
+    const grid =
+        document.getElementById("historietas-grid");
+
+    const botonAnterior =
+        document.getElementById("hist-anterior");
+
+    const botonSiguiente =
+        document.getElementById("hist-siguiente");
+
+    const botonVolver =
+        document.getElementById("hist-volver");
+
+
+
+    function abrirHistorieta(indice) {
+
+        historietaActual = indice;
+
+        imagenGrande.src =
+            historietas[indice];
+
+        imagenGrande.alt =
+            "Gallinas Felices - Historieta "
+            + (indice + 1);
+
+
+        grid.classList.add("grid-oculto");
+
+        lector.classList.remove(
+            "oculto-historieta"
+        );
+
+
+        botonAnterior.disabled =
+            indice === 0;
+
+        botonSiguiente.disabled =
+            indice === historietas.length - 1;
+
+
+        lector.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+
+    document
+        .querySelectorAll(".historieta-card")
+        .forEach((tarjeta, indice) => {
+
+            tarjeta.addEventListener(
+                "click",
+                () => abrirHistorieta(indice)
+            );
+
+        });
+
+
+
+    botonAnterior.addEventListener(
+        "click",
+        () => {
+
+            if (historietaActual > 0) {
+
+                abrirHistorieta(
+                    historietaActual - 1
+                );
+
+            }
+
+        }
+    );
+
+
+
+    botonSiguiente.addEventListener(
+        "click",
+        () => {
+
+            if (
+                historietaActual
+                < historietas.length - 1
+            ) {
+
+                abrirHistorieta(
+                    historietaActual + 1
+                );
+
+            }
+
+        }
+    );
+
+
+
+    botonVolver.addEventListener(
+        "click",
+        () => {
+
+            lector.classList.add(
+                "oculto-historieta"
+            );
+
+            grid.classList.remove(
+                "grid-oculto"
+            );
+
+
+            document
+                .getElementById("historieta")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+        }
+    );
+
+</script>
 <body>
 
     <main class="pagina-gallinas">
