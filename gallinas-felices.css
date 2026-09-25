@@ -398,3 +398,107 @@ footer a {
     }
 
 }
+/* =========================
+   HISTORIETAS
+   ========================= */
+
+.historietas-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.historietas-grid a {
+    overflow: hidden;
+
+    background: #f5e9d0;
+
+    color: #29231c;
+    text-decoration: none;
+
+    border: 2px solid #29231c;
+    border-radius: 8px;
+
+    box-shadow:
+        3px 3px 0
+        rgba(41, 35, 28, .2);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.historietas-grid a:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        5px 6px 0
+        rgba(41, 35, 28, .22);
+}
+
+
+.historietas-grid img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    object-position: top;
+
+    border-bottom:
+        2px solid #29231c;
+}
+
+
+.historietas-grid span {
+    display: block;
+
+    padding: 12px;
+
+    color: #a33924;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    text-align: center;
+}
+
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    .historietas-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 480px) {
+
+    .historietas-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+    }
+
+
+    .historietas-grid span {
+        padding: 9px;
+
+        font-size: 12px;
+    }
+
+}
