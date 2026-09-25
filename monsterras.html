@@ -57,228 +57,276 @@
              PRESENTACIÓN
              ========================= -->
 
-    <section class="presentacion">
+        <section class="presentacion">
 
-    <span class="etiqueta">
-        HISTORIETA ORIGINAL
-    </span>
+            <span class="etiqueta">
+                HISTORIETA ORIGINAL
+            </span>
 
-    <h1>
-        MONSTERRAS
-    </h1>
+            <h1>
+                MONSTERRAS
+            </h1>
 
-    <p class="intro">
-        Una ciudad cotidiana. Criaturas extraordinarias.
-        Y un mundo mucho más grande de lo que parece.
-    </p>
-
-    <p>
-        Mauro Sosa lleva una vida tranquila entre el trabajo,
-        sus amigos y las calles de siempre. Los Monsterras
-        forman parte de ese mundo, aunque hasta ahora nunca
-        les había prestado demasiada atención.
-    </p>
-
-    <p>
-        Un encuentro inesperado empieza a cambiar su forma
-        de mirar lo que siempre estuvo a su alrededor:
-        criaturas, aventureros, gimnasios y secretos que
-        todavía están lejos de comprenderse por completo.
-    </p>
-
-</section>
-
-
-       <!-- =========================
-     CAPÍTULOS
-     ========================= -->
-
-<section
-    class="bloque"
-    id="capitulos"
->
-
-    <div class="titulo-seccion">
-
-        <span class="numero-seccion">
-            01
-        </span>
-
-        <div>
-
-            <h2>
-                Capítulos
-            </h2>
-
-            <p>
-                Leé la historia de MONSTERRAS
-                desde el comienzo.
+            <p class="intro">
+                Un mundo donde humanos y criaturas
+                comparten algo más que la ciudad.
             </p>
 
-        </div>
+            <p>
+                Mauro Sosa lleva una vida cotidiana entre
+                el trabajo, la ciudad y sus propias preocupaciones.
+                Pero a su alrededor existen criaturas conocidas
+                como Monsterras.
+            </p>
 
-    </div>
+            <p>
+                Un encuentro inesperado empieza a cambiar
+                su forma de mirar lo que siempre estuvo a su
+                alrededor: criaturas, aventureros, gimnasios
+                y secretos que todavía están lejos de
+                comprenderse por completo.
+            </p>
 
-
-    <!-- =========================
-         LECTOR
-         ========================= -->
-
-    <div
-        id="lector-capitulo"
-        class="lector-capitulo oculto"
-    >
-
-        <div
-            id="capitulo-indicador"
-            class="capitulo-indicador"
-        >
-            Capítulo 1 de 2
-        </div>
-
-
-        <!-- CONTROLES SUPERIORES -->
-
-        <div class="lector-controles">
-
-            <button
-                id="capitulo-anterior"
-                type="button"
-            >
-                ← Anterior
-            </button>
-
-            <button
-                id="capitulo-volver"
-                type="button"
-            >
-                Volver a capítulos
-            </button>
-
-            <button
-                id="capitulo-siguiente"
-                type="button"
-            >
-                Siguiente →
-            </button>
-
-        </div>
-
-
-        <!-- PDF -->
-
-        <iframe
-            id="capitulo-pdf"
-            class="capitulo-pdf"
-            src=""
-            title="Lector de MONSTERRAS"
-        ></iframe>
-
-
-        <!-- CONTROLES INFERIORES -->
-
-        <div class="
-            lector-controles
-            lector-controles-abajo
-        ">
-
-            <button
-                id="capitulo-anterior-abajo"
-                type="button"
-            >
-                ← Anterior
-            </button>
-
-            <button
-                id="capitulo-siguiente-abajo"
-                type="button"
-            >
-                Siguiente →
-            </button>
-
-        </div>
-
-    </div>
+        </section>
 
 
 
-    <!-- =========================
-         LISTA DE CAPÍTULOS
-         ========================= -->
+        <!-- =========================
+             CAPÍTULOS
+             ========================= -->
 
-    <div
-        id="capitulos-grid"
-        class="capitulos-grid"
-    >
-
-
-        <!-- CAPÍTULO 1 -->
-
-        <button
-            class="capitulo-card"
-            type="button"
-            data-pdf="monsterras-cap1.pdf.pdf"
+        <section
+            class="bloque"
+            id="capitulos"
         >
 
-            <div class="capitulo-numero">
-                CAPÍTULO 01
-            </div>
+            <div class="titulo-seccion">
 
-            <div class="capitulo-contenido">
-
-                <h3>
-                    Día largo
-                </h3>
-
-                <p>
-                    El comienzo de la historia
-                    de Mauro Sosa.
-                </p>
-
-                <span class="leer-capitulo">
-                    Leer capítulo →
+                <span class="numero-seccion">
+                    01
                 </span>
 
-            </div>
+                <div>
 
-        </button>
+                    <h2>
+                        Capítulos
+                    </h2>
 
+                    <p>
+                        Leé la historia de MONSTERRAS
+                        desde el comienzo.
+                    </p>
 
-
-        <!-- CAPÍTULO 2 -->
-
-        <button
-            class="capitulo-card"
-            type="button"
-            data-pdf="monsterras-cap2.pdf.pdf"
-        >
-
-            <div class="capitulo-numero">
-                CAPÍTULO 02
-            </div>
-
-            <div class="capitulo-contenido">
-
-                <h3>
-                    Capítulo 2
-                </h3>
-
-                <p>
-                    La historia continúa.
-                </p>
-
-                <span class="leer-capitulo">
-                    Leer capítulo →
-                </span>
+                </div>
 
             </div>
 
-        </button>
 
 
-    </div>
+            <!-- =========================
+                 LECTOR
+                 ========================= -->
 
-</section>
+            <div
+                id="lector"
+                class="lector oculto"
+            >
+
+                <div class="lector-cabecera">
+
+                    <span
+                        id="lector-capitulo"
+                        class="lector-capitulo"
+                    >
+                        CAPÍTULO 01
+                    </span>
+
+                    <h3 id="lector-titulo">
+                        Día largo
+                    </h3>
+
+                    <div
+                        id="lector-pagina"
+                        class="lector-pagina"
+                    >
+                        Página 1
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONTROLES SUPERIORES -->
+
+                <div class="lector-controles">
+
+                    <button
+                        id="pagina-anterior"
+                        type="button"
+                    >
+                        ← Página anterior
+                    </button>
+
+                    <button
+                        id="volver-capitulos"
+                        type="button"
+                    >
+                        Volver a capítulos
+                    </button>
+
+                    <button
+                        id="pagina-siguiente"
+                        type="button"
+                    >
+                        Página siguiente →
+                    </button>
+
+                </div>
+
+
+
+                <!-- PÁGINA DEL CÓMIC -->
+
+                <div class="pagina-comic">
+
+                    <div
+                        id="cargando"
+                        class="cargando"
+                    >
+                        Cargando página...
+                    </div>
+
+                    <canvas
+                        id="pdf-canvas"
+                    ></canvas>
+
+                </div>
+
+
+
+                <!-- CONTROLES INFERIORES -->
+
+                <div
+                    class="
+                        lector-controles
+                        lector-controles-abajo
+                    "
+                >
+
+                    <button
+                        id="pagina-anterior-abajo"
+                        type="button"
+                    >
+                        ← Página anterior
+                    </button>
+
+                    <button
+                        id="pagina-siguiente-abajo"
+                        type="button"
+                    >
+                        Página siguiente →
+                    </button>
+
+                </div>
+
+
+                <!-- CAMBIO DE CAPÍTULO -->
+
+                <div
+                    id="cambio-capitulo"
+                    class="cambio-capitulo oculto"
+                >
+
+                    <button
+                        id="capitulo-siguiente"
+                        type="button"
+                    >
+                        Siguiente capítulo →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 TARJETAS DE CAPÍTULOS
+                 ========================= -->
+
+            <div
+                id="capitulos-grid"
+                class="capitulos-grid"
+            >
+
+
+                <!-- CAPÍTULO 1 -->
+
+                <button
+                    class="capitulo-card"
+                    type="button"
+                    data-capitulo="0"
+                >
+
+                    <div class="capitulo-numero">
+                        CAPÍTULO 01
+                    </div>
+
+                    <div class="capitulo-contenido">
+
+                        <h3>
+                            Día largo
+                        </h3>
+
+                        <p>
+                            El comienzo de la historia
+                            de Mauro Sosa.
+                        </p>
+
+                        <span class="leer-capitulo">
+                            Leer capítulo →
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+
+                <!-- CAPÍTULO 2 -->
+
+                <button
+                    class="capitulo-card"
+                    type="button"
+                    data-capitulo="1"
+                >
+
+                    <div class="capitulo-numero">
+                        CAPÍTULO 02
+                    </div>
+
+                    <div class="capitulo-contenido">
+
+                        <h3>
+                            Capítulo 2
+                        </h3>
+
+                        <p>
+                            La historia continúa.
+                        </p>
+
+                        <span class="leer-capitulo">
+                            Leer capítulo →
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+            </div>
+
+        </section>
 
 
 
@@ -286,150 +334,148 @@
              PERSONAJES
              ========================= -->
 
-       <section
-    class="bloque"
-    id="personajes"
->
+        <section
+            class="bloque"
+            id="personajes"
+        >
 
-    <div class="titulo-seccion">
+            <div class="titulo-seccion">
 
-        <span class="numero-seccion">
-            02
-        </span>
-
-        <div>
-
-            <h2>
-                Personajes
-            </h2>
-
-            <p>
-                Algunos de los personajes que dan vida
-                al mundo de MONSTERRAS.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="personajes-grid">
-
-
-        <!-- =========================
-             MAURO SOSA
-             ========================= -->
-
-        <article class="personaje-card">
-
-            <div class="personaje-imagen">
-
-                <img
-                    src="mauro.png"
-                    alt="Mauro Sosa"
-                >
-
-            </div>
-
-            <div class="personaje-info">
-
-                <span class="personaje-tipo">
-                    PROTAGONISTA
+                <span class="numero-seccion">
+                    02
                 </span>
 
-                <h3>
-                    Mauro Sosa
-                </h3>
+                <div>
 
-                <p>
-                    Un trabajador de vida tranquila que,
-                    casi sin buscarlo, empieza a prestar
-                    atención a un mundo que siempre estuvo
-                    a su alrededor.
-                </p>
+                    <h2>
+                        Personajes
+                    </h2>
 
-            </div>
+                    <p>
+                        Algunos de los personajes
+                        que forman parte de MONSTERRAS.
+                    </p>
 
-        </article>
-
-
-        <!-- =========================
-             PIMBÓ
-             ========================= -->
-
-        <article class="personaje-card">
-
-            <div class="personaje-imagen">
-
-                <img
-                    src="pimbo.png"
-                    alt="Pimbó"
-                >
+                </div>
 
             </div>
 
-            <div class="personaje-info">
 
-                <span class="personaje-tipo">
-                    MONTERRA
-                </span>
 
-                <h3>
-                    Pimbó
-                </h3>
+            <div class="personajes-grid">
 
-                <p>
-                    Curioso, tranquilo y resistente.
-                    Un Monsterra urbano de pocas necesidades,
-                    largos brazos y una particular forma
-                    de relacionarse con el mundo.
-                </p>
+
+                <!-- MAURO -->
+
+                <article class="personaje-card">
+
+                    <div class="personaje-imagen">
+
+                        <img
+                            src="mauro.png"
+                            alt="Mauro Sosa"
+                        >
+
+                    </div>
+
+                    <div class="personaje-info">
+
+                        <span class="personaje-tipo">
+                            HUMANO
+                        </span>
+
+                        <h3>
+                            Mauro Sosa
+                        </h3>
+
+                        <p>
+                            Un trabajador de vida tranquila que,
+                            casi sin buscarlo, empieza a prestar
+                            atención a un mundo que siempre estuvo
+                            a su alrededor.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PIMBÓ -->
+
+                <article class="personaje-card">
+
+                    <div class="personaje-imagen">
+
+                        <img
+                            src="pimbo.png"
+                            alt="Pimbó"
+                        >
+
+                    </div>
+
+                    <div class="personaje-info">
+
+                        <span class="personaje-tipo">
+                            MONTERRA
+                        </span>
+
+                        <h3>
+                            Pimbó
+                        </h3>
+
+                        <p>
+                            Curioso, tranquilo y resistente.
+                            Un Monsterra urbano de pocas necesidades,
+                            largos brazos y una particular forma de
+                            relacionarse con el mundo.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- EL PORTEÑO -->
+
+                <article class="personaje-card">
+
+                    <div class="personaje-imagen">
+
+                        <img
+                            src="portcentro.png"
+                            alt="El Porteño"
+                        >
+
+                    </div>
+
+                    <div class="personaje-info">
+
+                        <span class="personaje-tipo">
+                            GIMNASIO CENTRO
+                        </span>
+
+                        <h3>
+                            El Porteño
+                        </h3>
+
+                        <p>
+                            Líder del Gimnasio Centro. Seguro,
+                            carismático y bastante porfiado,
+                            tiene su propia manera de ver a los
+                            Monsterras y a quienes lo desafían.
+                        </p>
+
+                    </div>
+
+                </article>
+
 
             </div>
 
-        </article>
+        </section>
 
-
-        <!-- =========================
-             EL PORTEÑO
-             ========================= -->
-
-        <article class="personaje-card">
-
-            <div class="personaje-imagen">
-
-                <img
-                    src="portcentro.png"
-                    alt="El Porteño"
-                >
-
-            </div>
-
-            <div class="personaje-info">
-
-                <span class="personaje-tipo">
-                    GIMNASIO CENTRO
-                </span>
-
-                <h3>
-                    El Porteño
-                </h3>
-
-                <p>
-                    Líder del Gimnasio Centro.
-                    Seguro, carismático y bastante porfiado,
-                    tiene su propia manera de ver a los
-                    Monsterras y a quienes lo desafían.
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
 
 
         <!-- =========================
@@ -450,127 +496,435 @@
 
 
     </main>
-<script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+
+
+    <!-- =========================
+         PDF.JS
+         ========================= -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs"
+        type="module"
+    ></script>
+
+
+    <script type="module">
+
+        import * as pdfjsLib
+        from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+
+
+
+        /* =========================
+           CAPÍTULOS
+           ========================= */
+
+        const capitulos = [
+
+            {
+                numero: "CAPÍTULO 01",
+                titulo: "Día largo",
+                archivo: "monsterras-cap1.pdf.pdf"
+            },
+
+            {
+                numero: "CAPÍTULO 02",
+                titulo: "Capítulo 2",
+                archivo: "monsterras-cap2.pdf.pdf"
+            }
+
+        ];
+
+
+
+        /* =========================
+           ELEMENTOS
+           ========================= */
 
         const tarjetas =
             document.querySelectorAll(
                 ".capitulo-card"
             );
 
-        const lector =
-            document.getElementById(
-                "lector-capitulo"
-            );
-
-        const pdf =
-            document.getElementById(
-                "capitulo-pdf"
-            );
 
         const grid =
             document.getElementById(
                 "capitulos-grid"
             );
 
-        const indicador =
+
+        const lector =
             document.getElementById(
-                "capitulo-indicador"
+                "lector"
             );
+
+
+        const canvas =
+            document.getElementById(
+                "pdf-canvas"
+            );
+
+
+        const contexto =
+            canvas.getContext("2d");
+
+
+        const cargando =
+            document.getElementById(
+                "cargando"
+            );
+
+
+        const textoCapitulo =
+            document.getElementById(
+                "lector-capitulo"
+            );
+
+
+        const titulo =
+            document.getElementById(
+                "lector-titulo"
+            );
+
+
+        const paginaTexto =
+            document.getElementById(
+                "lector-pagina"
+            );
+
 
         const anterior =
             document.getElementById(
-                "capitulo-anterior"
+                "pagina-anterior"
             );
 
+
         const siguiente =
+            document.getElementById(
+                "pagina-siguiente"
+            );
+
+
+        const anteriorAbajo =
+            document.getElementById(
+                "pagina-anterior-abajo"
+            );
+
+
+        const siguienteAbajo =
+            document.getElementById(
+                "pagina-siguiente-abajo"
+            );
+
+
+        const volver =
+            document.getElementById(
+                "volver-capitulos"
+            );
+
+
+        const cambioCapitulo =
+            document.getElementById(
+                "cambio-capitulo"
+            );
+
+
+        const siguienteCapitulo =
             document.getElementById(
                 "capitulo-siguiente"
             );
 
-        const anteriorAbajo =
-            document.getElementById(
-                "capitulo-anterior-abajo"
-            );
-
-        const siguienteAbajo =
-            document.getElementById(
-                "capitulo-siguiente-abajo"
-            );
-
-        const volver =
-            document.getElementById(
-                "capitulo-volver"
-            );
 
 
-        let actual = 0;
+        /* =========================
+           ESTADO DEL LECTOR
+           ========================= */
+
+        let pdfActual = null;
+
+        let capituloActual = 0;
+
+        let paginaActual = 1;
+
+        let renderizando = false;
+
+        let paginaPendiente = null;
 
 
 
-        function mostrarCapitulo(indice) {
+        /* =========================
+           RENDERIZAR PÁGINA
+           ========================= */
 
-            actual = indice;
+        async function renderizarPagina(numero) {
 
-
-            /* INDICADOR */
-
-            indicador.textContent =
-                "Capítulo "
-                + (actual + 1)
-                + " de "
-                + tarjetas.length;
+            if (!pdfActual) {
+                return;
+            }
 
 
-            /* CARGAR PDF */
+            renderizando = true;
 
-            const archivo =
-                tarjetas[actual]
-                    .dataset.pdf;
-
-            pdf.src =
-                archivo + "#view=FitH";
-
-
-            /* OCULTAR TARJETAS */
-
-            grid.style.display =
-                "none";
-
-
-            /* MOSTRAR LECTOR */
-
-            lector.classList.remove(
+            cargando.classList.remove(
                 "oculto"
             );
 
 
-            /* BOTONES */
+            const pagina =
+                await pdfActual.getPage(
+                    numero
+                );
+
+
+            /*
+            Escala base.
+
+            Después ajustamos el canvas
+            al ancho disponible.
+            */
+
+            const viewportBase =
+                pagina.getViewport({
+                    scale: 1
+                });
+
+
+            const anchoDisponible =
+                document.querySelector(
+                    ".pagina-comic"
+                ).clientWidth;
+
+
+            const escala =
+                anchoDisponible /
+                viewportBase.width;
+
+
+            /*
+            Limitamos un poco el tamaño
+            en pantallas grandes.
+            */
+
+            const escalaFinal =
+                Math.min(
+                    escala,
+                    1.6
+                );
+
+
+            const viewport =
+                pagina.getViewport({
+                    scale: escalaFinal
+                });
+
+
+            /*
+            Más resolución para que
+            el texto se vea nítido.
+            */
+
+            const pixelRatio =
+                window.devicePixelRatio || 1;
+
+
+            canvas.width =
+                Math.floor(
+                    viewport.width *
+                    pixelRatio
+                );
+
+
+            canvas.height =
+                Math.floor(
+                    viewport.height *
+                    pixelRatio
+                );
+
+
+            canvas.style.width =
+                Math.floor(
+                    viewport.width
+                ) + "px";
+
+
+            canvas.style.height =
+                Math.floor(
+                    viewport.height
+                ) + "px";
+
+
+            const transform =
+                pixelRatio !== 1
+                    ? [
+                        pixelRatio,
+                        0,
+                        0,
+                        pixelRatio,
+                        0,
+                        0
+                    ]
+                    : null;
+
+
+            await pagina.render({
+
+                canvasContext:
+                    contexto,
+
+                transform:
+                    transform,
+
+                viewport:
+                    viewport
+
+            }).promise;
+
+
+            paginaActual =
+                numero;
+
+
+            paginaTexto.textContent =
+                "Página "
+                + paginaActual
+                + " de "
+                + pdfActual.numPages;
+
+
+            cargando.classList.add(
+                "oculto"
+            );
+
+
+            actualizarBotones();
+
+
+            renderizando = false;
+
+
+            if (paginaPendiente !== null) {
+
+                const pendiente =
+                    paginaPendiente;
+
+                paginaPendiente =
+                    null;
+
+                renderizarPagina(
+                    pendiente
+                );
+
+            }
+
+        }
+
+
+
+        /* =========================
+           PEDIR PÁGINA
+           ========================= */
+
+        function irAPagina(numero) {
+
+            if (!pdfActual) {
+                return;
+            }
+
+
+            if (
+                numero < 1 ||
+                numero > pdfActual.numPages
+            ) {
+                return;
+            }
+
+
+            if (renderizando) {
+
+                paginaPendiente =
+                    numero;
+
+                return;
+
+            }
+
+
+            renderizarPagina(
+                numero
+            );
+
+        }
+
+
+
+        /* =========================
+           BOTONES
+           ========================= */
+
+        function actualizarBotones() {
+
+            const primera =
+                paginaActual === 1;
+
+
+            const ultima =
+                paginaActual ===
+                pdfActual.numPages;
+
 
             anterior.disabled =
-                actual === 0;
+                primera;
+
 
             anteriorAbajo.disabled =
-                actual === 0;
+                primera;
+
 
             siguiente.disabled =
-                actual ===
-                tarjetas.length - 1;
+                ultima;
+
 
             siguienteAbajo.disabled =
-                actual ===
-                tarjetas.length - 1;
+                ultima;
 
 
-            /* SUBIR AL LECTOR */
 
-            lector.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+            /*
+            Al terminar un capítulo,
+            mostramos acceso al próximo.
+            */
+
+            if (
+                ultima &&
+                capituloActual <
+                capitulos.length - 1
+            ) {
+
+                cambioCapitulo.classList.remove(
+                    "oculto"
+                );
+
+                siguienteCapitulo.textContent =
+                    "Continuar con "
+                    + capitulos[
+                        capituloActual + 1
+                    ].numero
+                    + " →";
+
+            }
+
+            else {
+
+                cambioCapitulo.classList.add(
+                    "oculto"
+                );
+
+            }
 
         }
 
@@ -580,14 +934,125 @@ document.addEventListener(
            ABRIR CAPÍTULO
            ========================= */
 
+        async function abrirCapitulo(indice) {
+
+            capituloActual =
+                indice;
+
+
+            paginaActual =
+                1;
+
+
+            const datos =
+                capitulos[
+                    capituloActual
+                ];
+
+
+            textoCapitulo.textContent =
+                datos.numero;
+
+
+            titulo.textContent =
+                datos.titulo;
+
+
+            paginaTexto.textContent =
+                "Cargando capítulo...";
+
+
+            grid.style.display =
+                "none";
+
+
+            lector.classList.remove(
+                "oculto"
+            );
+
+
+            cambioCapitulo.classList.add(
+                "oculto"
+            );
+
+
+            cargando.classList.remove(
+                "oculto"
+            );
+
+
+            canvas.style.display =
+                "none";
+
+
+            lector.scrollIntoView({
+
+                behavior:
+                    "smooth",
+
+                block:
+                    "start"
+
+            });
+
+
+            try {
+
+                const tarea =
+                    pdfjsLib.getDocument(
+                        datos.archivo
+                    );
+
+
+                pdfActual =
+                    await tarea.promise;
+
+
+                canvas.style.display =
+                    "block";
+
+
+                await renderizarPagina(
+                    1
+                );
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Error cargando PDF:",
+                    error
+                );
+
+
+                cargando.textContent =
+                    "No se pudo cargar el capítulo.";
+
+            }
+
+        }
+
+
+
+        /* =========================
+           TARJETAS
+           ========================= */
+
         tarjetas.forEach(
-            function (tarjeta, indice) {
+            function (tarjeta) {
 
                 tarjeta.addEventListener(
                     "click",
                     function () {
 
-                        mostrarCapitulo(
+                        const indice =
+                            Number(
+                                tarjeta.dataset.capitulo
+                            );
+
+
+                        abrirCapitulo(
                             indice
                         );
 
@@ -603,35 +1068,39 @@ document.addEventListener(
            ANTERIOR
            ========================= */
 
-        anterior.addEventListener(
-            "click",
-            function () {
+        function paginaAnterior() {
 
-                if (actual > 0) {
+            if (paginaActual > 1) {
 
-                    mostrarCapitulo(
-                        actual - 1
-                    );
+                irAPagina(
+                    paginaActual - 1
+                );
 
-                }
+
+                lector.scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                });
 
             }
+
+        }
+
+
+        anterior.addEventListener(
+            "click",
+            paginaAnterior
         );
 
 
         anteriorAbajo.addEventListener(
             "click",
-            function () {
-
-                if (actual > 0) {
-
-                    mostrarCapitulo(
-                        actual - 1
-                    );
-
-                }
-
-            }
+            paginaAnterior
         );
 
 
@@ -640,36 +1109,62 @@ document.addEventListener(
            SIGUIENTE
            ========================= */
 
-        siguiente.addEventListener(
-            "click",
-            function () {
+        function paginaSiguiente() {
 
-                if (
-                    actual <
-                    tarjetas.length - 1
-                ) {
+            if (
+                pdfActual &&
+                paginaActual <
+                pdfActual.numPages
+            ) {
 
-                    mostrarCapitulo(
-                        actual + 1
-                    );
+                irAPagina(
+                    paginaActual + 1
+                );
 
-                }
+
+                lector.scrollIntoView({
+
+                    behavior:
+                        "smooth",
+
+                    block:
+                        "start"
+
+                });
 
             }
+
+        }
+
+
+        siguiente.addEventListener(
+            "click",
+            paginaSiguiente
         );
 
 
         siguienteAbajo.addEventListener(
             "click",
+            paginaSiguiente
+        );
+
+
+
+        /* =========================
+           SIGUIENTE CAPÍTULO
+           ========================= */
+
+        siguienteCapitulo.addEventListener(
+            "click",
             function () {
 
                 if (
-                    actual <
-                    tarjetas.length - 1
+                    capituloActual <
+                    capitulos.length - 1
                 ) {
 
-                    mostrarCapitulo(
-                        actual + 1
+                    abrirCapitulo(
+                        capituloActual + 1
                     );
 
                 }
@@ -680,7 +1175,7 @@ document.addEventListener(
 
 
         /* =========================
-           VOLVER
+           VOLVER A CAPÍTULOS
            ========================= */
 
         volver.addEventListener(
@@ -692,15 +1187,20 @@ document.addEventListener(
                 );
 
 
-                /*
-                Quitamos el PDF para que
-                deje de estar cargado.
-                */
-
-                pdf.src = "";
+                grid.style.display =
+                    "";
 
 
-                grid.style.display = "";
+                pdfActual =
+                    null;
+
+
+                contexto.clearRect(
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
 
 
                 document
@@ -708,17 +1208,63 @@ document.addEventListener(
                         "capitulos"
                     )
                     .scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "start"
+
                     });
 
             }
         );
 
-    }
-);
 
-</script>
+
+        /* =========================
+           REDIMENSIONAR
+           ========================= */
+
+        let temporizadorResize;
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                clearTimeout(
+                    temporizadorResize
+                );
+
+
+                temporizadorResize =
+                    setTimeout(
+                        function () {
+
+                            if (
+                                pdfActual &&
+                                !lector.classList.contains(
+                                    "oculto"
+                                )
+                            ) {
+
+                                irAPagina(
+                                    paginaActual
+                                );
+
+                            }
+
+                        },
+                        250
+                    );
+
+            }
+        );
+
+    </script>
+
+
 </body>
 
 </html>
