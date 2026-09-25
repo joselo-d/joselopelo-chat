@@ -19,140 +19,7 @@
 
 </head>
 
-<script>
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const tarjetas =
-        document.querySelectorAll(".historieta-card");
-
-    const lector =
-        document.getElementById("lector-historieta");
-
-    const imagenGrande =
-        document.getElementById("historia-grande");
-
-    const grid =
-        document.getElementById("historietas-grid");
-
-    const anterior =
-        document.getElementById("hist-anterior");
-
-    const siguiente =
-        document.getElementById("hist-siguiente");
-
-    const volver =
-        document.getElementById("hist-volver");
-
-
-    let actual = 0;
-
-
-    function mostrarHistorieta(indice) {
-
-        actual = indice;
-
-        const miniatura =
-            tarjetas[indice].querySelector("img");
-
-        imagenGrande.src =
-            miniatura.src;
-
-        imagenGrande.alt =
-            miniatura.alt;
-
-
-        grid.style.display = "none";
-
-        lector.classList.remove(
-            "oculto-historieta"
-        );
-
-
-        anterior.disabled =
-            actual === 0;
-
-        siguiente.disabled =
-            actual === tarjetas.length - 1;
-
-
-        lector.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    }
-
-
-    tarjetas.forEach(function (tarjeta, indice) {
-
-        tarjeta.addEventListener(
-            "click",
-            function () {
-
-                mostrarHistorieta(indice);
-
-            }
-        );
-
-    });
-
-
-    anterior.addEventListener(
-        "click",
-        function () {
-
-            if (actual > 0) {
-
-                mostrarHistorieta(
-                    actual - 1
-                );
-
-            }
-
-        }
-    );
-
-
-    siguiente.addEventListener(
-        "click",
-        function () {
-
-            if (actual < tarjetas.length - 1) {
-
-                mostrarHistorieta(
-                    actual + 1
-                );
-
-            }
-
-        }
-    );
-
-
-    volver.addEventListener(
-        "click",
-        function () {
-
-            lector.classList.add(
-                "oculto-historieta"
-            );
-
-            grid.style.display = "";
-
-            document
-                .getElementById("historieta")
-                .scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-        }
-    );
-
-});
-
-</script>
 <body>
 
     <main class="pagina-gallinas">
@@ -214,307 +81,410 @@ document.addEventListener("DOMContentLoaded", function () {
         </section>
 
 
-<!-- HISTORIETA -->
-<section class="bloque" id="historieta">
 
-    <h2>📖 La historieta</h2>
+        <!-- =========================
+             HISTORIETA
+             ========================= -->
 
-    <p>
-        Acá vas a poder encontrar las historias publicadas
-        de Gallinas Felices.
-    </p>
-
-
-    <!-- LECTOR -->
-
-    <div
-        id="lector-historieta"
-        class="lector-historieta oculto-historieta"
-    >
-
-        <div class="lector-controles">
-
-            <button
-                id="hist-anterior"
-                type="button"
-            >
-                ← Anterior
-            </button>
-
-            <button
-                id="hist-volver"
-                type="button"
-            >
-                Volver a historietas
-            </button>
-
-            <button
-                id="hist-siguiente"
-                type="button"
-            >
-                Siguiente →
-            </button>
-
-        </div>
-
-
-        <img
-            id="historia-grande"
-            src=""
-            alt="Gallinas Felices"
+        <section
+            class="bloque"
+            id="historieta"
         >
 
-    </div>
+            <h2>
+                📖 La historieta
+            </h2>
+
+            <p>
+                Acá vas a poder encontrar las historias
+                publicadas de Gallinas Felices.
+            </p>
 
 
 
-    <!-- GALERÍA -->
+            <!-- LECTOR -->
 
-    <div
-        id="historietas-grid"
-        class="historietas-grid"
-    >
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="1"
-        >
-            <img
-                src="gallina-cap1.png"
-                alt="Gallinas Felices - Historieta 1"
-            >
-            <span>Historieta 1</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="2"
-        >
-            <img
-                src="gallina-cap2.png"
-                alt="Gallinas Felices - Historieta 2"
-            >
-            <span>Historieta 2</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="3"
-        >
-            <img
-                src="gallina-cap3.png"
-                alt="Gallinas Felices - Historieta 3"
-            >
-            <span>Historieta 3</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="4"
-        >
-            <img
-                src="gallina-cap4.png"
-                alt="Gallinas Felices - Historieta 4"
-            >
-            <span>Historieta 4</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="5"
-        >
-            <img
-                src="gallina-cap5.png"
-                alt="Gallinas Felices - Historieta 5"
-            >
-            <span>Historieta 5</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="6"
-        >
-            <img
-                src="gallina-cap6.png"
-                alt="Gallinas Felices - Historieta 6"
-            >
-            <span>Historieta 6</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="7"
-        >
-            <img
-                src="gallina-cap7.png"
-                alt="Gallinas Felices - Historieta 7"
-            >
-            <span>Historieta 7</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="8"
-        >
-            <img
-                src="gallina-cap8.png"
-                alt="Gallinas Felices - Historieta 8"
-            >
-            <span>Historieta 8</span>
-        </button>
-
-
-        <button
-            class="historieta-card"
-            type="button"
-            data-capitulo="9"
-        >
-            <img
-                src="gallina-cap9.png"
-                alt="Gallinas Felices - Historieta 9"
-            >
-            <span>Historieta 9</span>
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     PERSONAJES
-     ========================= -->
-
-<section class="bloque">
-
-    <h2>
-        🐔 Personajes
-    </h2>
-
-    <p>
-        Conocé a Pía, Berta, Tato, Don Gallo
-        y al resto de los habitantes de la granja.
-    </p>
-
-
-    <div class="personajes-grid">
-
-
-        <!-- PÍA -->
-
-        <article class="personaje-card">
-
-            <img
-                src="pia.png"
-                alt="Pía"
+            <div
+                id="lector-historieta"
+                class="lector-historieta oculto-historieta"
             >
 
-            <div class="personaje-info">
 
-                <h3>Pía</h3>
+                <!-- INDICADOR -->
 
-                <p>
-                    Observadora, directa y siempre
-                    dispuesta a hacer la pregunta incómoda.
-                </p>
+                <div
+                    id="hist-indicador"
+                    class="hist-indicador"
+                >
+                    Historieta 1 de 9
+                </div>
+
+
+
+                <!-- CONTROLES -->
+
+                <div class="lector-controles">
+
+                    <button
+                        id="hist-anterior"
+                        type="button"
+                    >
+                        ← Anterior
+                    </button>
+
+
+                    <button
+                        id="hist-volver"
+                        type="button"
+                    >
+                        Volver a historietas
+                    </button>
+
+
+                    <button
+                        id="hist-siguiente"
+                        type="button"
+                    >
+                        Siguiente →
+                    </button>
+
+                </div>
+
+
+
+                <!-- IMAGEN GRANDE -->
+
+                <img
+                    id="historia-grande"
+                    src=""
+                    alt="Gallinas Felices"
+                >
 
             </div>
 
-        </article>
 
 
+            <!-- =========================
+                 GALERÍA
+                 ========================= -->
 
-        <!-- BERTA -->
-
-        <article class="personaje-card">
-
-            <img
-                src="berta.png"
-                alt="Berta"
+            <div
+                id="historietas-grid"
+                class="historietas-grid"
             >
 
-            <div class="personaje-info">
 
-                <h3>Berta</h3>
+                <!-- HISTORIETA 1 -->
 
-                <p>
-                    Trabajadora y tranquila, conoce muy bien
-                    cómo funcionan las cosas en la granja.
-                </p>
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="1"
+                >
+
+                    <img
+                        src="gallina-cap1.png"
+                        alt="Gallinas Felices - Historieta 1"
+                    >
+
+                    <span>
+                        Historieta 1
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 2 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="2"
+                >
+
+                    <img
+                        src="gallina-cap2.png"
+                        alt="Gallinas Felices - Historieta 2"
+                    >
+
+                    <span>
+                        Historieta 2
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 3 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="3"
+                >
+
+                    <img
+                        src="gallina-cap3.png"
+                        alt="Gallinas Felices - Historieta 3"
+                    >
+
+                    <span>
+                        Historieta 3
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 4 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="4"
+                >
+
+                    <img
+                        src="gallina-cap4.png"
+                        alt="Gallinas Felices - Historieta 4"
+                    >
+
+                    <span>
+                        Historieta 4
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 5 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="5"
+                >
+
+                    <img
+                        src="gallina-cap5.png"
+                        alt="Gallinas Felices - Historieta 5"
+                    >
+
+                    <span>
+                        Historieta 5
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 6 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="6"
+                >
+
+                    <img
+                        src="gallina-cap6.png"
+                        alt="Gallinas Felices - Historieta 6"
+                    >
+
+                    <span>
+                        Historieta 6
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 7 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="7"
+                >
+
+                    <img
+                        src="gallina-cap7.png"
+                        alt="Gallinas Felices - Historieta 7"
+                    >
+
+                    <span>
+                        Historieta 7
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 8 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="8"
+                >
+
+                    <img
+                        src="gallina-cap8.png"
+                        alt="Gallinas Felices - Historieta 8"
+                    >
+
+                    <span>
+                        Historieta 8
+                    </span>
+
+                </button>
+
+
+
+                <!-- HISTORIETA 9 -->
+
+                <button
+                    class="historieta-card"
+                    type="button"
+                    data-capitulo="9"
+                >
+
+                    <img
+                        src="gallina-cap9.png"
+                        alt="Gallinas Felices - Historieta 9"
+                    >
+
+                    <span>
+                        Historieta 9
+                    </span>
+
+                </button>
+
 
             </div>
 
-        </article>
+        </section>
 
 
 
-        <!-- TATO -->
+        <!-- =========================
+             PERSONAJES
+             ========================= -->
 
-        <article class="personaje-card">
+        <section class="bloque">
 
-            <img
-                src="tato.png"
-                alt="Tato"
-            >
+            <h2>
+                🐔 Personajes
+            </h2>
 
-            <div class="personaje-info">
+            <p>
+                Conocé a Pía, Berta, Tato, Don Gallo
+                y al resto de los habitantes de la granja.
+            </p>
 
-                <h3>Tato</h3>
 
-                <p>
-                    Pequeño, pícaro y siempre listo
-                    para encontrarle el lado divertido a todo.
-                </p>
+            <div class="personajes-grid">
+
+
+                <!-- PÍA -->
+
+                <article class="personaje-card">
+
+                    <img
+                        src="pia.png"
+                        alt="Pía"
+                    >
+
+                    <div class="personaje-info">
+
+                        <h3>Pía</h3>
+
+                        <p>
+                            Observadora, directa y siempre
+                            dispuesta a hacer la pregunta incómoda.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BERTA -->
+
+                <article class="personaje-card">
+
+                    <img
+                        src="berta.png"
+                        alt="Berta"
+                    >
+
+                    <div class="personaje-info">
+
+                        <h3>Berta</h3>
+
+                        <p>
+                            Trabajadora y tranquila, conoce muy bien
+                            cómo funcionan las cosas en la granja.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- TATO -->
+
+                <article class="personaje-card">
+
+                    <img
+                        src="tato.png"
+                        alt="Tato"
+                    >
+
+                    <div class="personaje-info">
+
+                        <h3>Tato</h3>
+
+                        <p>
+                            Pequeño, pícaro y siempre listo
+                            para encontrarle el lado divertido a todo.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- DON GALLO -->
+
+                <article class="personaje-card">
+
+                    <img
+                        src="don-gallo.png"
+                        alt="Don Gallo"
+                    >
+
+                    <div class="personaje-info">
+
+                        <h3>Don Gallo</h3>
+
+                        <p>
+                            La voz de autoridad de la granja,
+                            con una presencia difícil de ignorar.
+                        </p>
+
+                    </div>
+
+                </article>
+
 
             </div>
 
-        </article>
-
-
-
-        <!-- DON GALLO -->
-
-        <article class="personaje-card">
-
-            <img
-                src="don-gallo.png"
-                alt="Don Gallo"
-            >
-
-            <div class="personaje-info">
-
-                <h3>Don Gallo</h3>
-
-                <p>
-                    La voz de autoridad de la granja,
-                    con una presencia difícil de ignorar.
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
+        </section>
 
 
 
@@ -534,6 +504,239 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     </main>
+
+
+
+    <!-- =========================
+         LECTOR DE HISTORIETAS
+         ========================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const tarjetas =
+                    document.querySelectorAll(
+                        ".historieta-card"
+                    );
+
+
+                const lector =
+                    document.getElementById(
+                        "lector-historieta"
+                    );
+
+
+                const imagenGrande =
+                    document.getElementById(
+                        "historia-grande"
+                    );
+
+
+                const grid =
+                    document.getElementById(
+                        "historietas-grid"
+                    );
+
+
+                const anterior =
+                    document.getElementById(
+                        "hist-anterior"
+                    );
+
+
+                const siguiente =
+                    document.getElementById(
+                        "hist-siguiente"
+                    );
+
+
+                const volver =
+                    document.getElementById(
+                        "hist-volver"
+                    );
+
+
+                const indicador =
+                    document.getElementById(
+                        "hist-indicador"
+                    );
+
+
+                let actual = 0;
+
+
+
+                function mostrarHistorieta(indice) {
+
+                    actual = indice;
+
+
+                    /* INDICADOR */
+
+                    indicador.textContent =
+                        "Historieta "
+                        + (actual + 1)
+                        + " de "
+                        + tarjetas.length;
+
+
+
+                    /* IMAGEN */
+
+                    const miniatura =
+                        tarjetas[indice]
+                            .querySelector("img");
+
+
+                    imagenGrande.src =
+                        miniatura.src;
+
+
+                    imagenGrande.alt =
+                        miniatura.alt;
+
+
+
+                    /* OCULTAR GALERÍA */
+
+                    grid.style.display =
+                        "none";
+
+
+                    lector.classList.remove(
+                        "oculto-historieta"
+                    );
+
+
+
+                    /* BOTONES */
+
+                    anterior.disabled =
+                        actual === 0;
+
+
+                    siguiente.disabled =
+                        actual ===
+                        tarjetas.length - 1;
+
+
+
+                    /* SUBIR AL LECTOR */
+
+                    lector.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "start"
+
+                    });
+
+                }
+
+
+
+                /* ABRIR DESDE LA GALERÍA */
+
+                tarjetas.forEach(
+                    function (tarjeta, indice) {
+
+                        tarjeta.addEventListener(
+                            "click",
+                            function () {
+
+                                mostrarHistorieta(
+                                    indice
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+
+                /* ANTERIOR */
+
+                anterior.addEventListener(
+                    "click",
+                    function () {
+
+                        if (actual > 0) {
+
+                            mostrarHistorieta(
+                                actual - 1
+                            );
+
+                        }
+
+                    }
+                );
+
+
+
+                /* SIGUIENTE */
+
+                siguiente.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            actual
+                            < tarjetas.length - 1
+                        ) {
+
+                            mostrarHistorieta(
+                                actual + 1
+                            );
+
+                        }
+
+                    }
+                );
+
+
+
+                /* VOLVER A LA GALERÍA */
+
+                volver.addEventListener(
+                    "click",
+                    function () {
+
+                        lector.classList.add(
+                            "oculto-historieta"
+                        );
+
+
+                        grid.style.display =
+                            "";
+
+
+                        document
+                            .getElementById(
+                                "historieta"
+                            )
+                            .scrollIntoView({
+
+                                behavior: "smooth",
+
+                                block: "start"
+
+                            });
+
+                    }
+                );
+
+
+            }
+        );
+
+    </script>
+
 
 </body>
 
