@@ -159,7 +159,25 @@
                     src=""
                     alt="Gallinas Felices"
                 >
+<!-- CONTROLES INFERIORES -->
 
+<div class="lector-controles lector-controles-abajo">
+
+    <button
+        id="hist-anterior-abajo"
+        type="button"
+    >
+        ← Anterior
+    </button>
+
+    <button
+        id="hist-siguiente-abajo"
+        type="button"
+    >
+        Siguiente →
+    </button>
+
+</div>
             </div>
 
 
@@ -510,124 +528,264 @@
     <!-- =========================
          LECTOR DE HISTORIETAS
          ========================= -->
+<script>
 
-    <script>
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-        document.addEventListener(
-            "DOMContentLoaded",
+        const tarjetas =
+            document.querySelectorAll(
+                ".historieta-card"
+            );
+
+        const lector =
+            document.getElementById(
+                "lector-historieta"
+            );
+
+        const imagenGrande =
+            document.getElementById(
+                "historia-grande"
+            );
+
+        const grid =
+            document.getElementById(
+                "historietas-grid"
+            );
+
+        const anterior =
+            document.getElementById(
+                "hist-anterior"
+            );
+
+        const siguiente =
+            document.getElementById(
+                "hist-siguiente"
+            );
+
+        const anteriorAbajo =
+            document.getElementById(
+                "hist-anterior-abajo"
+            );
+
+        const siguienteAbajo =
+            document.getElementById(
+                "hist-siguiente-abajo"
+            );
+
+        const volver =
+            document.getElementById(
+                "hist-volver"
+            );
+
+        const indicador =
+            document.getElementById(
+                "hist-indicador"
+            );
+
+
+        let actual = 0;
+
+
+
+        function mostrarHistorieta(indice) {
+
+            actual = indice;
+
+
+            /* INDICADOR */
+
+            indicador.textContent =
+                "Historieta "
+                + (actual + 1)
+                + " de "
+                + tarjetas.length;
+
+
+
+            /* IMAGEN */
+
+            const miniatura =
+                tarjetas[indice]
+                    .querySelector("img");
+
+            imagenGrande.src =
+                miniatura.src;
+
+            imagenGrande.alt =
+                miniatura.alt;
+
+
+
+            /* OCULTAR GALERÍA */
+
+            grid.style.display =
+                "none";
+
+            lector.classList.remove(
+                "oculto-historieta"
+            );
+
+
+
+            /* BOTONES SUPERIORES */
+
+            anterior.disabled =
+                actual === 0;
+
+            siguiente.disabled =
+                actual ===
+                tarjetas.length - 1;
+
+
+
+            /* BOTONES INFERIORES */
+
+            anteriorAbajo.disabled =
+                actual === 0;
+
+            siguienteAbajo.disabled =
+                actual ===
+                tarjetas.length - 1;
+
+
+
+            /* SUBIR AL LECTOR */
+
+            lector.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "start"
+
+            });
+
+        }
+
+
+
+        /* ABRIR DESDE LA GALERÍA */
+
+        tarjetas.forEach(
+            function (tarjeta, indice) {
+
+                tarjeta.addEventListener(
+                    "click",
+                    function () {
+
+                        mostrarHistorieta(
+                            indice
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* ANTERIOR SUPERIOR */
+
+        anterior.addEventListener(
+            "click",
             function () {
 
+                if (actual > 0) {
 
-                const tarjetas =
-                    document.querySelectorAll(
-                        ".historieta-card"
+                    mostrarHistorieta(
+                        actual - 1
                     );
 
+                }
 
-                const lector =
-                    document.getElementById(
-                        "lector-historieta"
+            }
+        );
+
+
+
+        /* SIGUIENTE SUPERIOR */
+
+        siguiente.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    actual
+                    < tarjetas.length - 1
+                ) {
+
+                    mostrarHistorieta(
+                        actual + 1
                     );
 
+                }
 
-                const imagenGrande =
-                    document.getElementById(
-                        "historia-grande"
+            }
+        );
+
+
+
+        /* ANTERIOR INFERIOR */
+
+        anteriorAbajo.addEventListener(
+            "click",
+            function () {
+
+                if (actual > 0) {
+
+                    mostrarHistorieta(
+                        actual - 1
                     );
 
+                }
 
-                const grid =
-                    document.getElementById(
-                        "historietas-grid"
+            }
+        );
+
+
+
+        /* SIGUIENTE INFERIOR */
+
+        siguienteAbajo.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    actual
+                    < tarjetas.length - 1
+                ) {
+
+                    mostrarHistorieta(
+                        actual + 1
                     );
 
+                }
 
-                const anterior =
-                    document.getElementById(
-                        "hist-anterior"
-                    );
-
-
-                const siguiente =
-                    document.getElementById(
-                        "hist-siguiente"
-                    );
-
-
-                const volver =
-                    document.getElementById(
-                        "hist-volver"
-                    );
-
-
-                const indicador =
-                    document.getElementById(
-                        "hist-indicador"
-                    );
-
-
-                let actual = 0;
+            }
+        );
 
 
 
-                function mostrarHistorieta(indice) {
+        /* VOLVER A LA GALERÍA */
 
-                    actual = indice;
+        volver.addEventListener(
+            "click",
+            function () {
 
+                lector.classList.add(
+                    "oculto-historieta"
+                );
 
-                    /* INDICADOR */
+                grid.style.display =
+                    "";
 
-                    indicador.textContent =
-                        "Historieta "
-                        + (actual + 1)
-                        + " de "
-                        + tarjetas.length;
-
-
-
-                    /* IMAGEN */
-
-                    const miniatura =
-                        tarjetas[indice]
-                            .querySelector("img");
-
-
-                    imagenGrande.src =
-                        miniatura.src;
-
-
-                    imagenGrande.alt =
-                        miniatura.alt;
-
-
-
-                    /* OCULTAR GALERÍA */
-
-                    grid.style.display =
-                        "none";
-
-
-                    lector.classList.remove(
-                        "oculto-historieta"
-                    );
-
-
-
-                    /* BOTONES */
-
-                    anterior.disabled =
-                        actual === 0;
-
-
-                    siguiente.disabled =
-                        actual ===
-                        tarjetas.length - 1;
-
-
-
-                    /* SUBIR AL LECTOR */
-
-                    lector.scrollIntoView({
+                document
+                    .getElementById(
+                        "historieta"
+                    )
+                    .scrollIntoView({
 
                         behavior: "smooth",
 
@@ -635,107 +793,13 @@
 
                     });
 
-                }
-
-
-
-                /* ABRIR DESDE LA GALERÍA */
-
-                tarjetas.forEach(
-                    function (tarjeta, indice) {
-
-                        tarjeta.addEventListener(
-                            "click",
-                            function () {
-
-                                mostrarHistorieta(
-                                    indice
-                                );
-
-                            }
-                        );
-
-                    }
-                );
-
-
-
-                /* ANTERIOR */
-
-                anterior.addEventListener(
-                    "click",
-                    function () {
-
-                        if (actual > 0) {
-
-                            mostrarHistorieta(
-                                actual - 1
-                            );
-
-                        }
-
-                    }
-                );
-
-
-
-                /* SIGUIENTE */
-
-                siguiente.addEventListener(
-                    "click",
-                    function () {
-
-                        if (
-                            actual
-                            < tarjetas.length - 1
-                        ) {
-
-                            mostrarHistorieta(
-                                actual + 1
-                            );
-
-                        }
-
-                    }
-                );
-
-
-
-                /* VOLVER A LA GALERÍA */
-
-                volver.addEventListener(
-                    "click",
-                    function () {
-
-                        lector.classList.add(
-                            "oculto-historieta"
-                        );
-
-
-                        grid.style.display =
-                            "";
-
-
-                        document
-                            .getElementById(
-                                "historieta"
-                            )
-                            .scrollIntoView({
-
-                                behavior: "smooth",
-
-                                block: "start"
-
-                            });
-
-                    }
-                );
-
-
             }
         );
 
-    </script>
+    }
+);
+
+</script>
 
 
 </body>
