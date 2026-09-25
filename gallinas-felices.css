@@ -295,3 +295,106 @@ footer a {
     }
 
 }
+/* =========================
+   PERSONAJES
+   ========================= */
+
+.personajes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.personaje-card {
+    overflow: hidden;
+
+    background: #f5e9d0;
+
+    border: 2px solid #29231c;
+    border-radius: 8px;
+
+    box-shadow:
+        3px 3px 0
+        rgba(41, 35, 28, .2);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.personaje-card:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        5px 6px 0
+        rgba(41, 35, 28, .22);
+}
+
+
+.personaje-card img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+
+    border-bottom:
+        2px solid #29231c;
+}
+
+
+.personaje-info {
+    padding: 14px;
+}
+
+
+.personaje-info h3 {
+    margin: 0 0 7px;
+
+    color: #a33924;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+.personaje-info p {
+    margin: 0;
+
+    color: #51483d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   PERSONAJES RESPONSIVE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .personajes-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
